@@ -1513,28 +1513,28 @@ Linker script and memory map
  .debug_abbrev  0x000013f3      0x178 /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
  .debug_abbrev  0x0000156b       0x12 /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtn.o
 
-.debug_line     0x00000000     0x28bd
+.debug_line     0x00000000     0x28cc
  *(.debug_line)
  .debug_line    0x00000000       0x49 /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crti.o
  .debug_line    0x00000049        0x0 game.o
  .debug_line    0x00000049        0x0 graphic_main.o
  .debug_line    0x00000049        0x0 graphic_sub.o
- .debug_line    0x00000049      0x144 main.o
- .debug_line    0x0000018d        0x0 sound.o
- .debug_line    0x0000018d        0x0 timer.o
- .debug_line    0x0000018d      0x751 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
- .debug_line    0x000008de      0x31e /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
- .debug_line    0x00000bfc      0x2d1 /opt/devkitPro/libnds/lib/libnds9.a(system.o)
- .debug_line    0x00000ecd      0x200 /opt/devkitPro/libnds/lib/libnds9.a(video.o)
- .debug_line    0x000010cd      0x595 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
- .debug_line    0x00001662      0x936 /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
- .debug_line    0x00001f98      0x1d9 /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
- .debug_line    0x00002171       0xc5 /opt/devkitPro/libnds/lib/libnds9.a(biosCalls.o)
- .debug_line    0x00002236       0x98 /opt/devkitPro/libnds/lib/libnds9.a(debugprint.o)
- .debug_line    0x000022ce       0xc3 /opt/devkitPro/libnds/lib/libnds9.a(interruptDispatcher.o)
- .debug_line    0x00002391      0x2d0 /opt/devkitPro/libnds/lib/libnds9.a(background.o)
- .debug_line    0x00002661      0x1dd /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
- .debug_line    0x0000283e       0x7f /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtn.o
+ .debug_line    0x00000049      0x153 main.o
+ .debug_line    0x0000019c        0x0 sound.o
+ .debug_line    0x0000019c        0x0 timer.o
+ .debug_line    0x0000019c      0x751 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
+ .debug_line    0x000008ed      0x31e /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
+ .debug_line    0x00000c0b      0x2d1 /opt/devkitPro/libnds/lib/libnds9.a(system.o)
+ .debug_line    0x00000edc      0x200 /opt/devkitPro/libnds/lib/libnds9.a(video.o)
+ .debug_line    0x000010dc      0x595 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
+ .debug_line    0x00001671      0x936 /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
+ .debug_line    0x00001fa7      0x1d9 /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
+ .debug_line    0x00002180       0xc5 /opt/devkitPro/libnds/lib/libnds9.a(biosCalls.o)
+ .debug_line    0x00002245       0x98 /opt/devkitPro/libnds/lib/libnds9.a(debugprint.o)
+ .debug_line    0x000022dd       0xc3 /opt/devkitPro/libnds/lib/libnds9.a(interruptDispatcher.o)
+ .debug_line    0x000023a0      0x2d0 /opt/devkitPro/libnds/lib/libnds9.a(background.o)
+ .debug_line    0x00002670      0x1dd /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
+ .debug_line    0x0000284d       0x7f /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtn.o
 
 .debug_frame    0x00000000      0xc74
  *(.debug_frame)
@@ -1549,27 +1549,27 @@ Linker script and memory map
  .debug_frame   0x00000ae4       0xb0 /opt/devkitPro/libnds/lib/libnds9.a(background.o)
  .debug_frame   0x00000b94       0xe0 /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
 
-.debug_str      0x00000000     0x2f1c
+.debug_str      0x00000000     0x2f2b
  *(.debug_str)
- .debug_str     0x00000000      0x1ed main.o
-                                0x241 (size before relaxing)
- .debug_str     0x000001ed      0xde8 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
+ .debug_str     0x00000000      0x1fc main.o
+                                0x250 (size before relaxing)
+ .debug_str     0x000001fc      0xde8 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
                                 0xfa2 (size before relaxing)
- .debug_str     0x00000fd5      0x2b6 /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
+ .debug_str     0x00000fe4      0x2b6 /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
                                 0x39d (size before relaxing)
- .debug_str     0x0000128b      0x2cd /opt/devkitPro/libnds/lib/libnds9.a(system.o)
+ .debug_str     0x0000129a      0x2cd /opt/devkitPro/libnds/lib/libnds9.a(system.o)
                                 0x4ad (size before relaxing)
- .debug_str     0x00001558      0x90a /opt/devkitPro/libnds/lib/libnds9.a(video.o)
+ .debug_str     0x00001567      0x90a /opt/devkitPro/libnds/lib/libnds9.a(video.o)
                                 0xae7 (size before relaxing)
- .debug_str     0x00001e62      0x496 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
+ .debug_str     0x00001e71      0x496 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
                                 0xc6c (size before relaxing)
- .debug_str     0x000022f8      0x71a /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
+ .debug_str     0x00002307      0x71a /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
                                 0x8ff (size before relaxing)
- .debug_str     0x00002a12      0x13f /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
+ .debug_str     0x00002a21      0x13f /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
                                 0x2f0 (size before relaxing)
- .debug_str     0x00002b51      0x308 /opt/devkitPro/libnds/lib/libnds9.a(background.o)
+ .debug_str     0x00002b60      0x308 /opt/devkitPro/libnds/lib/libnds9.a(background.o)
                                 0x64c (size before relaxing)
- .debug_str     0x00002e59       0xc3 /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
+ .debug_str     0x00002e68       0xc3 /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
                                 0x199 (size before relaxing)
 
 .debug_loc      0x00000000     0x3713
@@ -1624,7 +1624,7 @@ LOAD /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/../../../../arm-eabi/lib/th
 END GROUP
 LOAD /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtend.o
 LOAD /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtn.o
-OUTPUT(/home/nds/files/workspace/Project_test/Project_test.elf elf32-littlearm)
+OUTPUT(/home/nds/files/workspace/Minesweeper_ds/Project_test/Project_test.elf elf32-littlearm)
 
 .ARM.attributes
                 0x00000000       0x2f

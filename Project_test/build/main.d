@@ -1,4 +1,5 @@
-main.o: /home/nds/files/workspace/Project_test/source/main.c \
+main.o:  \
+ /home/nds/files/workspace/Minesweeper_ds/Project_test/source/main.c \
   /opt/devkitPro/libnds/include/nds.h \
   /opt/devkitPro/libnds/include/nds/libversion.h \
   /opt/devkitPro/libnds/include/nds/ndstypes.h \
