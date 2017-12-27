@@ -94,7 +94,7 @@ void updateChronoDisp(u16* map,int min, int sec, int msec)
 
 void updateChronoDisp_Main(int min, int sec, int msec)
 {
-	changeColorDisp_Main(YELLOW);
+	changeColorDisp_Main(BLACK);
 	updateChronoDisp(BG_MAP_RAM(0), min,sec,msec);
 }
 
@@ -143,8 +143,6 @@ void changeColorDisp_Main(uint16 c)
 {
 	BG_PALETTE[0] = c;
 }
-
-
 
 void initChronoDisp_Main()
 {

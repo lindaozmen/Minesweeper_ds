@@ -45,13 +45,13 @@ void handleTouchPad(){
 void handleInput(){
 	scanKeys();
 	unsigned keys = keysDown();
-	if( keys & KEY_A ){
+	if( keys & KEY_START ){
 		mmStart(MOD_WILDWEST, MM_PLAY_LOOP);
 		startGame();
 		initChronoDisp_Main();
 		Audio_PlayMusic();
 	}
-	if (keys & KEY_Y ){
+	if (keys & KEY_B ){
 		irqDisable(IRQ_TIMER0);
 		stopGame();
 		stopMusic();
