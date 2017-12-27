@@ -1,0 +1,7 @@
+#define SFX_EXPLOSION	0
+#define MOD_FLATOUTLIES	0
+#define MOD_STEREO	1
+#define MOD_WILDWEST	2
+#define MSL_NSONGS	3
+#define MSL_NSAMPS	32
+#define MSL_BANKSIZE	35
