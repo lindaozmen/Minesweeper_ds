@@ -64,7 +64,7 @@ void configBG2_Sub(){
     REG_BG2PB_SUB = 0;
     REG_BG2PD_SUB = 256;
 
-    fillScreen_Sub(WHITE);
+    fillScreen_Sub(BLACK);
 }
 
 void fillScreen_Sub(u16 color){
@@ -88,14 +88,10 @@ void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in) {
 	//color (out) and the inside color (in)
 	//...TO COMPLETE EXERCISE 4
 	int col, row;
-	/*int row,col,row1,col1;
-	for (row = top; row <= (top+32);row++)
-		for (col = left; col < left + 32; col ++)
-			BG_BMP_RAM_SUB(0)[row*(col+32) + col ] = out;
-	for (row1 = (top+4); row1 <= (top-4);row1++)
-				for (col1 =(left+4); col1 < (left + 32-4); col1 ++)
+
+	for (row = 0; row<19; row++)	/*int row,col,row1,col1;
+
 					BG_BMP_RAM_SUB(0)[row1*(col1+32-4) + col1 ] = in;*/
-	for (row = 0; row<19; row++)
 		for(col = 0; col<19; col++)
 			if((row <2) || (row>= 17) || (col<2) || (col >= 17))
 				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = out;

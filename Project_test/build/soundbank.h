@@ -5,8 +5,10 @@
 #define SFX_BY_THE_SILE	19
 #define SFX_RIP_BY_ASLE	21
 #define MOD_HALLUCINATIONS	1
-#define MOD_STEREO	2
-#define MOD_WILDWEST	3
-#define MSL_NSONGS	4
-#define MSL_NSAMPS	63
-#define MSL_BANKSIZE	67
+#define MOD_INFLUENCA	2
+#define SFX_RESULT	63
+#define MOD_STEREO	3
+#define MOD_WILDWEST	4
+#define MSL_NSONGS	5
+#define MSL_NSAMPS	95
+#define MSL_BANKSIZE	100
