@@ -6,3 +6,9 @@
  *	Implementation of game
  */
 
+#include "game.h"
+#include "timer.h"
+
+void stopGame(){
+
+}

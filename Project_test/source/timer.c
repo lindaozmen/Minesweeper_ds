@@ -8,9 +8,7 @@
 
 #include "timer.h"
 
-
 uint32 sec_init = 0; // Reset
-
 // Current value of the countdown timer (in mili-sec, sec and min)
 uint32 min = 0, sec = 0, msec = 0;
 
@@ -117,8 +115,12 @@ void ISR_VBlank()
 	updateChronoDisp_Main(min, sec, msec);
 }
 
-
-
+void stopTimer()
+{
+	min = 0;
+	sec = 0;
+	msec = 0;
+}
 
 void IRQ_initialize()
 {
@@ -126,10 +128,8 @@ void IRQ_initialize()
 	TIMER0_DATA = TIMER_FREQ_1024(1000);
 	TIMER0_CR = TIMER_DIV_1024 | TIMER_IRQ_REQ | TIMER_ENABLE;
 
-
 	// Countdown timer value decrementing:
 	irqSet(IRQ_TIMER0, &ISR_countdown_timer);
-
 
 	// Main screen refreshing:
 	// Associate the ISR (ISR_VBlank) to the interrupt line VBLANK and enable it
@@ -137,7 +137,6 @@ void IRQ_initialize()
 	irqEnable(IRQ_VBLANK);
 
 }
-
 
 void changeColorDisp_Main(uint16 c)
 {
@@ -159,7 +158,4 @@ void initChronoDisp_Main()
 	BG_PALETTE[1] = ARGB16(1,0,0,0);
 	memset(BG_MAP_RAM(0), 32,32*32*2);
 	updateChronoDisp_Main(-1,-1,-1);
-
 }
-
-

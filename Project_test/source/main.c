@@ -6,11 +6,12 @@
 #include <nds.h>
 #include <stdio.h>
 #include "graphic_main.h"
+#include "graphic_sub.h"
 #include "sound.h"
 #include "timer.h"
+#include "game.h"
 
 void startGame(){};
-void stopGame(){};
 void stopChronoDisplay_Main(){};
 void handleInput();
 void handleTouchPad();
@@ -20,6 +21,9 @@ int main(void) {
 	consoleDemoInit();
 	Audio_Init();
     configureGraphics_Main_Up();
+	configureGraphics_Sub();
+	fill_sub();
+
     while(1)
     {
     	handleInput();
@@ -39,25 +43,23 @@ void handleTouchPad(){
 		  function. (reveal the map and end the game).
 		*/
 	}
-
 }
 
 void handleInput(){
 	scanKeys();
 	unsigned keys = keysDown();
-	if( keys & KEY_START ){
+	if( keys & KEY_START){
 		mmStart(MOD_WILDWEST, MM_PLAY_LOOP);
 		startGame();
 		initChronoDisp_Main();
 		Audio_PlayMusic();
 	}
-	if (keys & KEY_B ){
+	if (keys & KEY_B){
 		irqDisable(IRQ_TIMER0);
-		stopGame();
+		stopTimer();
 		stopMusic();
 		changeColorDisp_Main(BLACK);
 		configureGraphics_Main_Up();
-
 	}
 		handleTouchPad();
 }

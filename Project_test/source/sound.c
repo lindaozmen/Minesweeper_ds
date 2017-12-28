@@ -12,7 +12,7 @@ void Audio_Init()
 	//Init the sound library
 	mmInitDefaultMem((mm_addr)soundbank_bin);
 	//Load module
-	mmLoad(MOD_WILDWEST);
+	mmLoad(MOD_HALLUCINATIONS);
 	//Load effects
 	mmLoadEffect(SFX_EXPLOSION);
 	//mmLoadEffect(SFX_);
@@ -22,7 +22,7 @@ void Audio_Init()
 void Audio_PlayMusic()
 {
 	//Start playing music in a loop
-	mmStart(MOD_WILDWEST, MM_PLAY_LOOP);
+	mmStart(MOD_HALLUCINATIONS, MM_PLAY_LOOP);
 	//Set module volume to 512 (range 0...1024) using the function mmSetModuleVolume(...)
 	mmSetModuleVolume(512);
 }

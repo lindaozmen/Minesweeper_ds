@@ -10,5 +10,7 @@
 #ifndef GAME_H_
 #define GAME_H_
 
+void stopGame();
+
 
 #endif /* GAME_H_ */

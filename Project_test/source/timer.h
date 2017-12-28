@@ -41,4 +41,6 @@ void changeColorDisp_Main(uint16 c);
 
 void IRQ_initialize();
 
+void stopTimer();
+
 #endif /* TIMER_H_ */
