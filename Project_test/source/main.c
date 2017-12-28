@@ -43,25 +43,25 @@ void handleTouchPad(){
 			{
 				int x = touch.px;
 				int y = touch.py;
-
 				int compteur_x=0;
 				int compteur_y=0;
+				if (x>= 32){
+					while (y>=19)
+					{
+						y = y-19;
+						compteur_y++;
 
-				while (y>=19)
-				{
-					y = y-19;
-					compteur_y++;
-
+					}
+					while (x>=51)
+					{
+						x = x-19;
+						compteur_x++;
+					}
+					fill_19x19_button(compteur_y*19, compteur_x*19+32, GREY, RED);
+					Effect_Play();
 				}
 
-				while (x>=51)
-				{
-					x = x-19;
-					compteur_x++;
-				}
 
-				fill_19x19_button(compteur_y*19, compteur_x*19+32, GREY, RED);
-				Effect_Play();
 				/*BOMB TOUCHED*/
 				/*
 				  if a bomb is touched, put the explosion effect and call the endGame
@@ -91,6 +91,5 @@ void handleInput(){
 		configureGraphics_Main_Up();
 	}
 	handleTouchPad();
-
 }
 
