@@ -27,8 +27,13 @@ void Audio_PlayMusic()
 	mmSetModuleVolume(512);
 }
 
-void stopMusic()
+void Effect_Play()
 {
 	mmEffect(SFX_EXPLOSION);
+}
+
+void stopMusic()
+{
+	Effect_Play();
 	mmStop();
 }

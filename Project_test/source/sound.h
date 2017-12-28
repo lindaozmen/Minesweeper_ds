@@ -17,4 +17,5 @@
 void Audio_Init();
 void Audio_PlayMusic();
 void stopMusic();
+void Effect_Play();
 

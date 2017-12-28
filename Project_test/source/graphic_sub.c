@@ -63,13 +63,26 @@ void configBG2_Sub(){
     REG_BG2PC_SUB = 0;
     REG_BG2PB_SUB = 0;
     REG_BG2PD_SUB = 256;
+
+    fillScreen_Sub(WHITE);
 }
 
-void fill_32x32_button(unsigned int top, unsigned int left, u16 out, u16 in) {
+void fillScreen_Sub(u16 color){
+	//Fill the buffer of the screen with the given input color
+	//... TO COMPLETE EXERCISE 1
+	int i,j;
+	for(i = 0; i<192; i++){
+		for(j = 0;j<256; j++){
+			BG_BMP_RAM_SUB(0)[i*256+j] = color;
+		}
+}
+}
+
+void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in) {
 	//Sanity check. If the coordinates are not correct (the button will be
 	//partially or fully outside the screen) return without doing anything
 	//...TO COMPLETE EXERCISE 4
-	if (top > 160 || left > 224) return;
+	if (top > 192 || left > 220) return;
 
 	//Draw the button of 32x32 pixels given the top left corner and the outside
 	//color (out) and the inside color (in)
@@ -82,9 +95,9 @@ void fill_32x32_button(unsigned int top, unsigned int left, u16 out, u16 in) {
 	for (row1 = (top+4); row1 <= (top-4);row1++)
 				for (col1 =(left+4); col1 < (left + 32-4); col1 ++)
 					BG_BMP_RAM_SUB(0)[row1*(col1+32-4) + col1 ] = in;*/
-	for (row = 0; row<32; row++)
-		for(col = 0; col<32; col++)
-			if((row <4) || (row>= 28) || (col<4) || (col >= 28))
+	for (row = 0; row<19; row++)
+		for(col = 0; col<19; col++)
+			if((row <2) || (row>= 17) || (col<2) || (col >= 17))
 				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = out;
 			else
 				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = in;
@@ -93,15 +106,15 @@ void fill_32x32_button(unsigned int top, unsigned int left, u16 out, u16 in) {
 
 void fill_sub(){
 	int i,j;
-	for (j = 0; j<256; j+=32 )
+	for ( j = 32; j<225; j+=19)
 	{
-		for(i = 0; i<192; i+=32)
+		for(i = 0; i<192; i+=19)
 		{
-			fill_32x32_button(i, j, BLACK, GREY);
+			fill_19x19_button(i, j, GREY, LIGHT_GREY);
 		}
 	}
-
-
 }
+
+
 
 

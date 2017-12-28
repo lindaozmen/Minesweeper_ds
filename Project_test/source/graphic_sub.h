@@ -14,8 +14,9 @@
 
 void configureGraphics_Sub();
 void configBG2_Sub();
-void fill_32x32_button(unsigned int top, unsigned int left, u16 out, u16 in);
+void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in);
 void fill_sub();
+void fillScreen_Sub(u16 color);
 
 /************************
  * Macros for the colors
@@ -27,7 +28,8 @@ void fill_sub();
 #define	LIGHT_BLUE ARGB16(1,0,31,31)
 #define	WHITE ARGB16(1,31,31,31)
 #define	BLACK ARGB16(1,0,0,0)
-#define GREY ARGB16(1,16,16,16)
+#define GREY ARGB16(1,10,10,10)
+#define LIGHT_GREY ARGB16(1,20,20,20)
 
 
 #endif /* GRAPHIC_SUB_H_ */

@@ -9,6 +9,3 @@
 #include "game.h"
 #include "timer.h"
 
-void stopGame(){
-
-}
