@@ -6,8 +6,17 @@
  *	Header file of sound in project
  */
 
-#ifndef SOUND_H_
-#define SOUND_H_
+
+#include <nds.h>
+#include <stdio.h>
+#include "soundbank.h"
+#include "soundbank_bin.h"
+#include <maxmod9.h>
 
 
-#endif /* SOUND_H_ */
+void Audio_Init();
+void Audio_PlayMusic();
+void stopMusic();
+void Explosion_Effect_Play();
+void Result_Effect_Play();
+
