@@ -18,6 +18,7 @@
 #include <string.h>
 #include "game.h"
 #include "timer.h"
+#include "graphic_sub.h"
 
 #define PRIVATE static
 #define PUBLIC
@@ -55,6 +56,7 @@ PRIVATE void fill_array(int number_of_bombs)
 				repeat = 1;
 		} while (repeat);
 
+		status[row][col] = 1;
 		g_matrix[row][col].is_bomb = 1;
 	}
 	calculate_numbers();
@@ -99,7 +101,8 @@ PRIVATE void calculate_numbers()
 
 	for (i = 1; i <= GAME_ROW; ++i) {
 		for (j = 1; j <= GAME_COL; ++j) {
-			g_matrix[i][j].env_bomb_count = get_sum(i, j);
+			if (!g_matrix[i][j].is_bomb)
+				g_matrix[i][j].env_bomb_count = get_sum(i, j);
 		}
 	}
 }
@@ -130,6 +133,7 @@ PUBLIC void on_matrix_clicked(int i, int j)
 {
 	if (g_matrix[i][j].is_bomb) {
 #ifdef TEST
+		fillScreen_Sub(BLACK);
 		printf("lose\n");
 #endif
 		return;
@@ -143,8 +147,5 @@ PUBLIC void on_matrix_clicked(int i, int j)
 	printf("%d\n", g_matrix[i - 1][j + 1].env_bomb_count);
 #endif
 }
-
-
-
 
 

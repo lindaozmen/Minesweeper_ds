@@ -75,19 +75,21 @@ void handleTouchPad(){
 	}
 }
 
+
 void handleInput(){
 	scanKeys();
 	unsigned keys = keysDown();
+	int level = 1; //default easy
 	if(keys & KEY_Y)
 	{
 		//playerPlaysTen();
-		init_game(1);
+		level = 1;
 		verification = 1;
 	}
 	if (keys & KEY_A)
 	{
 		verification = 1;
-		init_game(2);
+		level = 2;
 		//playerPlaysTwenty();
 	}
 	if( keys & KEY_START){
@@ -96,7 +98,7 @@ void handleInput(){
 			bool_start = 1;
 			fill_sub();
 			mmStart(MOD_WILDWEST, MM_PLAY_LOOP);
-			startGame();
+			init_game(level);
 			initChronoDisp_Main();
 			Audio_PlayMusic();
 		}
@@ -113,4 +115,3 @@ void handleInput(){
 	}
 	handleTouchPad();
 }
-
