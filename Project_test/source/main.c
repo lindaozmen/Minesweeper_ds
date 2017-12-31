@@ -18,6 +18,7 @@ int main(void) {
     configureGraphics_Main_Up();
 	configureGraphics_Sub();
 	configureSprites();
+	init_game(1);
 
     while(1)
     {
@@ -25,5 +26,4 @@ int main(void) {
     	swiWaitForVBlank();
     }
 }
-
 
