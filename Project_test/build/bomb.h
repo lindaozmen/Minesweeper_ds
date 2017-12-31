@@ -1,12 +1,13 @@
 
-//{{BLOCK(up)
+//{{BLOCK(bomb)
 
 //======================================================================
 //
-//	up, 256x192@8, 
+//	bomb, 24x24@8, 
+//	Transparent color : 00,FF,00
 //	+ palette 256 entries, not compressed
-//	+ bitmap not compressed
-//	Total size: 512 + 49152 = 49664
+//	+ 9 tiles not compressed
+//	Total size: 512 + 576 = 1088
 //
 //	Time-stamp: 2017-12-31, 09:45:29
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
@@ -14,15 +15,15 @@
 //
 //======================================================================
 
-#ifndef GRIT_UP_H
-#define GRIT_UP_H
+#ifndef GRIT_BOMB_H
+#define GRIT_BOMB_H
 
-#define upBitmapLen 49152
-extern const unsigned int upBitmap[12288];
+#define bombTilesLen 576
+extern const unsigned int bombTiles[144];
 
-#define upPalLen 512
-extern const unsigned short upPal[256];
+#define bombPalLen 512
+extern const unsigned short bombPal[256];
 
-#endif // GRIT_UP_H
+#endif // GRIT_BOMB_H
 
-//}}BLOCK(up)
+//}}BLOCK(bomb)

@@ -7,18 +7,7 @@
  */
 
 #include "graphic_sub.h"
-/*
-u8 tile[64] = {
-		1,1,1,1,1,1,1,1,
-		1,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,1,
-		1,0,0,0,0,0,0,1,
-		1,1,1,1,1,1,1,1
-};
-*/
+
 void configureGraphics_Sub()
 {
 	REG_DISPCNT_SUB = MODE_5_2D | DISPLAY_BG2_ACTIVE;
@@ -26,33 +15,22 @@ void configureGraphics_Sub()
 	VRAM_C_CR = VRAM_ENABLE | VRAM_C_SUB_BG;
 
 	configBG2_Sub();
-/*
-	BGCTRL_SUB[0] = BG_BMP_BASE(0)| BG_BMP8_256x256;
 
-    dmaCopy(tile, &BG_TILE_RAM_SUB(0)[0], 64);
+}
 
-	// set up affine matrix
-	REG_BG2PA_SUB = 256;
-	REG_BG2PC_SUB = 256;
-	REG_BG2PB_SUB = 256;
-	REG_BG2PD_SUB = 256;
+void configureSprites() {
+	//Set up memory bank to work in sprite mode (offset since we are using VRAM A for backgrounds)
+	VRAM_D_CR = VRAM_ENABLE | VRAM_D_SUB_SPRITE;
 
-	BG_PALETTE_SUB[0] = WHITE;
-	BG_PALETTE_SUB[1] = BLUE;
+	//Initialize sprite manager and the engine
+	oamInit(&oamSub, SpriteMapping_2D, false);
 
-	//Set the pointer mapMemory to the RAM location of the chosen MAP_BASE
-	//Hint: use the macro BG_MAP_RAM
-	mapMemory = (u16*)BG_MAP_RAM_SUB(25);
-	for (i = 0; i<32; i++)
-		for(j = 0; j<32; j++)
-		{
-			BG_MAP_RAM_SUB(1)[32*(i)+j] = 0;
-			BG_MAP_RAM_SUB(1)[32*(i+1)+j] = 0;
-		    BG_MAP_RAM_SUB(1)[32*(i)+j +1] = 0;
-		    BG_MAP_RAM_SUB(1)[32*(i+1)+j+1] = 0;
-		}
+	//Allocate space for the graphic to show in the sprite
+	gfx = oamAllocateGfx(&oamSub, SpriteSize_16x16, SpriteColorFormat_256Color);
 
-*/
+	//Copy data for the graphic (palette and bitmap)
+	swiCopy(bombPal, SPRITE_PALETTE, bombPalLen/2);
+	swiCopy(bombTiles, gfx, bombTilesLen/2);
 }
 
 void configBG2_Sub(){
@@ -64,12 +42,11 @@ void configBG2_Sub(){
     REG_BG2PB_SUB = 0;
     REG_BG2PD_SUB = 256;
 
-    fillScreen_Sub(BLACK);
+    fillScreen_Sub(WHITE);
 }
 
 void fillScreen_Sub(u16 color){
 	//Fill the buffer of the screen with the given input color
-	//... TO COMPLETE EXERCISE 1
 	int i,j;
 	for(i = 0; i<192; i++){
 		for(j = 0;j<256; j++){
@@ -81,22 +58,27 @@ void fillScreen_Sub(u16 color){
 void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in) {
 	//Sanity check. If the coordinates are not correct (the button will be
 	//partially or fully outside the screen) return without doing anything
-	//...TO COMPLETE EXERCISE 4
 	if (top > 192 || left > 220) return;
 
-	//Draw the button of 32x32 pixels given the top left corner and the outside
+	//Draw the button of 19x19 pixels given the top left corner and the outside
 	//color (out) and the inside color (in)
-	//...TO COMPLETE EXERCISE 4
 	int col, row;
 
-	for (row = 0; row<19; row++)	/*int row,col,row1,col1;
-
-					BG_BMP_RAM_SUB(0)[row1*(col1+32-4) + col1 ] = in;*/
+	for (row = 0; row<19; row++)
+	{
 		for(col = 0; col<19; col++)
+		{
 			if((row <2) || (row>= 17) || (col<2) || (col >= 17))
+			{
 				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = out;
+			}
 			else
+			{
 				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = in;
+			}
+
+		}
+	}
 
 }
 

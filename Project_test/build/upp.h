@@ -1,12 +1,12 @@
 
-//{{BLOCK(up)
+//{{BLOCK(upp)
 
 //======================================================================
 //
-//	up, 256x192@8, 
+//	upp, 256x191@8, 
 //	+ palette 256 entries, not compressed
 //	+ bitmap not compressed
-//	Total size: 512 + 49152 = 49664
+//	Total size: 512 + 48896 = 49408
 //
 //	Time-stamp: 2017-12-31, 09:45:29
 //	Exported by Cearn's GBA Image Transmogrifier, v0.8.3
@@ -14,15 +14,15 @@
 //
 //======================================================================
 
-#ifndef GRIT_UP_H
-#define GRIT_UP_H
+#ifndef GRIT_UPP_H
+#define GRIT_UPP_H
 
-#define upBitmapLen 49152
-extern const unsigned int upBitmap[12288];
+#define uppBitmapLen 48896
+extern const unsigned int uppBitmap[12224];
 
-#define upPalLen 512
-extern const unsigned short upPal[256];
+#define uppPalLen 512
+extern const unsigned short uppPal[256];
 
-#endif // GRIT_UP_H
+#endif // GRIT_UPP_H
 
-//}}BLOCK(up)
+//}}BLOCK(upp)

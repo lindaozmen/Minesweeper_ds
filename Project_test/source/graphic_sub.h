@@ -9,14 +9,15 @@
 #ifndef GRAPHIC_SUB_H_
 #define GRAPHIC_SUB_H_
 #include <nds.h>
+#include "bomb.h"
 
-//u16* mapMemory;
-
-void configureGraphics_Sub();
+u16* gfx;
+void configureGraphics_Sub(); // To configure the SUB engine
+void configureSprites(); //To configure the sprites (Bomb + Numbers)
 void configBG2_Sub();
-void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in);
-void fill_sub();
-void fillScreen_Sub(u16 color);
+void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in); //The buttons
+void fill_sub(); // Configure the sub engine with all the 100 buttons
+void fillScreen_Sub(u16 color); //Initialize with a color
 
 /************************
  * Macros for the colors

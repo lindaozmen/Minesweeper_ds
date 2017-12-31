@@ -24,6 +24,6 @@
 #define	WHITE ARGB16(1,31,31,31)
 #define	BLACK ARGB16(1,0,0,0)
 
-void configureGraphics_Main_Up();
+void configureGraphics_Main_Up(); //Configure the MAIN engine
 
 #endif /* GRAPHIC_MAIN_H_ */

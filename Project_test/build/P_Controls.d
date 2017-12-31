@@ -1,5 +1,6 @@
-main.o:  \
- /home/nds/files/workspace/Minesweeper_ds/Project_test/source/main.c \
+P_Controls.o:  \
+ /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.c \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h \
   /opt/devkitPro/libnds/include/nds.h \
   /opt/devkitPro/libnds/include/nds/libversion.h \
   /opt/devkitPro/libnds/include/nds/ndstypes.h \
@@ -48,7 +49,6 @@ main.o:  \
   /opt/devkitPro/libnds/include/nds/arm9/sprite.h \
   /opt/devkitPro/libnds/include/nds/system.h \
   /opt/devkitPro/libnds/include/nds/arm9/decompress.h \
-  /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_main.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/bomb.h \
@@ -61,6 +61,8 @@ main.o:  \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/game.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h:
 
 /opt/devkitPro/libnds/include/nds.h:
 
@@ -157,8 +159,6 @@ main.o:  \
 /opt/devkitPro/libnds/include/nds/system.h:
 
 /opt/devkitPro/libnds/include/nds/arm9/decompress.h:
-
-/home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_main.h:
 

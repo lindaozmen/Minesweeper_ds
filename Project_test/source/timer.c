@@ -9,7 +9,7 @@
 #include "timer.h"
 
 uint32 sec_init = 0; // Reset
-// Current value of the countdown timer (in mili-sec, sec and min)
+// Current value of the countdown timer (in milli-sec, sec and min)
 uint32 min = 0, sec = 0, msec = 0;
 
 void printDigit(u16* map, int number, int x, int y)
@@ -98,7 +98,6 @@ void updateChronoDisp_Main(int min, int sec, int msec)
 
 void ISR_countdown_timer()
 {
-
 		msec = (msec + 1) % 1000;
 		if(!msec)
 		{
@@ -110,7 +109,6 @@ void ISR_countdown_timer()
 
 void ISR_VBlank()
 {
-
 	// Update the time value printed on the MAIN screen
 	updateChronoDisp_Main(min, sec, msec);
 }
@@ -124,11 +122,10 @@ void stopTimer()
 
 void IRQ_initialize()
 {
-	// Configure timer 0 to trigger an interrupt every 1 ms
+	// Timer 0 will trigger an interrupt every 1 ms
 	TIMER0_DATA = TIMER_FREQ_1024(1000);
 	TIMER0_CR = TIMER_DIV_1024 | TIMER_IRQ_REQ | TIMER_ENABLE;
 
-	// Countdown timer value decrementing:
 	irqSet(IRQ_TIMER0, &ISR_countdown_timer);
 
 	// Main screen refreshing:

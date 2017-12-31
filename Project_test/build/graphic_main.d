@@ -50,8 +50,10 @@ graphic_main.o:  \
   /opt/devkitPro/libnds/include/nds/system.h \
   /opt/devkitPro/libnds/include/nds/arm9/decompress.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/upp.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/timer.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/bomb.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/game.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h
 
@@ -155,9 +157,13 @@ graphic_main.o:  \
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h:
 
+/home/nds/files/workspace/Minesweeper_ds/Project_test/build/upp.h:
+
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/timer.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/build/bomb.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/game.h:
 

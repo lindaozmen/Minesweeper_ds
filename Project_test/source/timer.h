@@ -32,15 +32,18 @@
 #define	WHITE ARGB16(1,31,31,31)
 #define	BLACK ARGB16(1,0,0,0)
 
+void ISR_VBlank(); //To Refresh the screen (MAIN)
 
-void initChronoDisp_Main();
+void ISR_countdown_timer(); //To increment the chrono
+
+void initChronoDisp_Main(); //Configure the main for the chrono
 
 void updateChronoDisp_Main(int min, int sec, int msec);
 
 void changeColorDisp_Main(uint16 c);
 
-void IRQ_initialize();
+void IRQ_initialize(); //Initialisation of the counter
 
-void stopTimer();
+void stopTimer(); //Disables the timer and resets it
 
 #endif /* TIMER_H_ */

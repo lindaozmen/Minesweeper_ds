@@ -48,7 +48,8 @@ graphic_sub.o:  \
   /opt/devkitPro/libnds/include/nds/arm9/videoGL.h \
   /opt/devkitPro/libnds/include/nds/arm9/sprite.h \
   /opt/devkitPro/libnds/include/nds/system.h \
-  /opt/devkitPro/libnds/include/nds/arm9/decompress.h
+  /opt/devkitPro/libnds/include/nds/arm9/decompress.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/bomb.h
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h:
 
@@ -147,3 +148,5 @@ graphic_sub.o:  \
 /opt/devkitPro/libnds/include/nds/system.h:
 
 /opt/devkitPro/libnds/include/nds/arm9/decompress.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/build/bomb.h:

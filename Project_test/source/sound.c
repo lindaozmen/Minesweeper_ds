@@ -16,7 +16,6 @@ void Audio_Init()
 	//Load effects
 	mmLoadEffect(SFX_EXPLOSION);
 	mmLoadEffect(SFX_RESULT);
-	//mmLoadEffect(SFX_);
 
 }
 
@@ -24,7 +23,7 @@ void Audio_PlayMusic()
 {
 	//Start playing music in a loop
 	mmStart(MOD_INFLUENCA, MM_PLAY_LOOP);
-	//Set module volume to 512 (range 0...1024) using the function mmSetModuleVolume(...)
+	//Set module volume to 512
 	mmSetModuleVolume(512);
 }
 
