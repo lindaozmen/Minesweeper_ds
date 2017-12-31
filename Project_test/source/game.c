@@ -53,7 +53,7 @@ PRIVATE void fill_array(int number_of_bombs)
 			row = rand() % GAME_ROW + 1;
 			col = rand() % GAME_COL + 1;
 			if (status[row][col])
-				repeat = 1;
+			repeat = 1;
 		} while (repeat);
 
 		status[row][col] = 1;
@@ -62,25 +62,7 @@ PRIVATE void fill_array(int number_of_bombs)
 	calculate_numbers();
 
 #ifdef TEST
-	int k,l;
 
-	printf("IS BOMB\n");
-	for (k = 1; k <= GAME_ROW; ++k) {
-		for (l = 1; l <= GAME_COL; ++l) {
-			printf("%d ", g_matrix[k][l].is_bomb);
-		}
-		printf("\n");
-	}
-
-/*
-	printf("Environment\n");
-	for (k = 1; k <= GAME_ROW; ++k) {
-		for (l = 1; l <= GAME_COL; ++l) {
-			printf("%d ", g_matrix[k][l].env_bomb_count);
-		}
-		printf("\n");
-	}
-	*/
 #endif
 }
 
@@ -131,21 +113,29 @@ PUBLIC void init_game(int level)
 
 PUBLIC void on_matrix_clicked(int i, int j)
 {
-	if (g_matrix[i][j].is_bomb) {
+	// +1 because of the extra frame on g_matrix
+	if (g_matrix[i+1][j+1].is_bomb) {
 #ifdef TEST
-		fillScreen_Sub(BLACK);
-		printf("lose\n");
+		fill_19x19_button(j*19, i*19+32, GREY, BLACK);
 #endif
 		return;
 	}
 
+	if (g_matrix[i+1][j+1].env_bomb_count == 1) {
 #ifdef TEST
-	/*(i - 1, j - 1), (i - 1, j), (i - 1, j + 1), (i, j - 1), (i, j + 1), (i + 1, j - 1), (i + 1, j), (i + 1, j +1)*/
-	printf("Environment Count=%d\n", g_matrix[i][j].env_bomb_count);
-	printf("%d\n", g_matrix[i - 1][j - 1].env_bomb_count);
-	printf("%d\n", g_matrix[i - 1][j].env_bomb_count);
-	printf("%d\n", g_matrix[i - 1][j + 1].env_bomb_count);
+		fill_19x19_button(j*19, i*19+32, GREY, BLUE);
 #endif
+	}
+	else if (g_matrix[i+1][j+1].env_bomb_count == 2) {
+#ifdef TEST
+		fill_19x19_button(j*19, i*19+32, GREY, GREEN);
+#endif
+	}
+	else if (g_matrix[i+1][j+1].env_bomb_count == 3) {
+#ifdef TEST
+		fill_19x19_button(j*19, i*19+32, GREY, YELLOW);
+#endif
+	}
 }
 
 
