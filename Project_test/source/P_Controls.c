@@ -27,33 +27,11 @@ void handleTouchPad(){
 					x = x-19;
 					compteur_x++;
 				}
-		    	oamSet(&oamSub, 	// oam handler
-		    		10,				// Number of sprite
-		    		compteur_x*19+32+3,compteur_y*19+4,			// Coordinates
-		    		0,				// Priority
-		    		0,				// Palette to use
-		    		SpriteSize_16x16,			// Sprite size
-		    		SpriteColorFormat_256Color,	// Color format
-		    		gfx,			// Loaded graphic to display
-		    		-1,				// Affine rotation to use (-1 none)
-		    		false,			// Double size if rotating
-		    		false,			// Hide this sprite
-		    		false, false,	// Horizontal or vertical flip
-		    		false			// Mosaic
-		    		);
-		    	//Update the sprites
-		    	swiWaitForVBlank();
-				oamUpdate(&oamSub);
-				//fill_19x19_button(compteur_y*19, compteur_x*19+32, GREY, RED);
+				fill_19x19_button(compteur_y*19, compteur_x*19+32, GREY, WHITE);
+				//fill_19x19_eight(compteur_y*19, compteur_x*19+32,RED);
+				fill_19x19_bomb(compteur_y*19, compteur_x*19+32);
 				Result_Effect_Play();
 			}
-
-
-			/*BOMB TOUCHED*/
-			/*
-			  if a bomb is touched, put the explosion effect and call the endGame
-			  function. (reveal the map and end the game).
-			*/
 		}
 	}
 }

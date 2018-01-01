@@ -13,17 +13,26 @@
 
 u16* gfx;
 void configureGraphics_Sub(); // To configure the SUB engine
-void configureSprites(); //To configure the sprites (Bomb + Numbers)
 void configBG2_Sub();
 void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in); //The buttons
 void fill_sub(); // Configure the sub engine with all the 100 buttons
 void fillScreen_Sub(u16 color); //Initialize with a color
+void fill_19x19_one(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_two(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_three(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_four(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_five(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_six(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_seven(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_eight(unsigned int top, unsigned int left,u16 color);
+void fill_19x19_bomb(unsigned int top, unsigned int left);
 
 /************************
  * Macros for the colors
  ***********************/
 #define	RED ARGB16(1,31,0,0)
 #define GREEN ARGB16(1,0,31,0)
+#define DARK_GREEN ARGB16(1,0,25,0)
 #define	BLUE ARGB16(1,0,0,31)
 #define	YELLOW ARGB16(1,31,31,0)
 #define	LIGHT_BLUE ARGB16(1,0,31,31)
