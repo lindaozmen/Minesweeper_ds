@@ -37,6 +37,8 @@ PRIVATE void fill_array(int number_of_bombs);
 PRIVATE int get_sum(int i, int j);
 PRIVATE void calculate_numbers();
 PRIVATE int get_number_of_bombs(int level);
+PRIVATE void show_empty_relatives(int i, int j);
+PRIVATE void show_bombs(void);
 
 PRIVATE CELL_INFO g_matrix[ROW][COL];
 
@@ -111,6 +113,32 @@ PUBLIC void init_game(int level)
 	fill_array(get_number_of_bombs(level)); /* matrisi random dolduruyor */
 }
 
+PRIVATE void show_empty_relatives(int i, int j)
+{
+	if (i < 1 || i > GAME_ROW || j < 1 || j > GAME_COL)
+		return;
+
+	if (g_matrix[i][j].uncovered)
+		return;
+
+	if (g_matrix[i][j].env_bomb_count > 0) {
+		printf("Uncover:(%d, %d):%d\n", i, j, g_matrix[i][j].env_bomb_count);
+		g_matrix[i][j].uncovered = 1;
+	}
+	else {
+		printf("Uncover:(%d, %d):0\n", i, j);
+		g_matrix[i][j].uncovered = 1;
+		show_empty_relatives(i - 1, j - 1);
+		show_empty_relatives(i - 1, j);
+		show_empty_relatives(i - 1, j + 1);
+		show_empty_relatives(i, j - 1);
+		show_empty_relatives(i, j + 1);
+		show_empty_relatives(i + 1, j - 1);
+		show_empty_relatives(i + 1, j);
+		show_empty_relatives(i + 1, j + 1);
+	}
+}
+
 PUBLIC void on_matrix_clicked(int i, int j)
 {
 	// +1 because of the extra frame on g_matrix
@@ -120,6 +148,16 @@ PUBLIC void on_matrix_clicked(int i, int j)
 #endif
 		return;
 	}
+
+	if (g_matrix[i][j].is_bomb) {
+		show_bombs();
+#ifdef TEST
+		printf("lose\n");
+#endif
+		return;
+	}
+
+	show_empty_relatives(i, j);
 
 	if (g_matrix[i+1][j+1].env_bomb_count == 1) {
 #ifdef TEST
