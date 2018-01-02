@@ -28,6 +28,10 @@ void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in); //
 void fill_19x19_bomb(unsigned int top, unsigned int left);
 void fill_19x19_flag(unsigned int top, unsigned int left);
 void fill_19x19_no_flag(unsigned int top, unsigned int left);
+void fill_19x19_sound (unsigned int top, unsigned int left);
+void fill_19x19_no_sound (unsigned int top, unsigned int left);
+void fill_19x19_stop(unsigned int top, unsigned int left);
+
 
 /************************
  * Macros for the colors

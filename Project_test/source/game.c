@@ -19,6 +19,8 @@
 #include "game.h"
 #include "timer.h"
 #include "graphic_sub.h"
+#include "sound.h"
+#include "P_Controls.h"
 
 #define PRIVATE static
 #define PUBLIC
@@ -214,7 +216,13 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 
 	// +1 because of the extra frame on g_matrix
 	if (g_matrix[countery+1][counterx+1].is_bomb)
+	{
 		show_bombs();
+		irqDisable(IRQ_TIMER0);
+		Explosion_Effect_Play();
+		stopMusic();
+		stopTouching();
+	}
 	else
 		show_empty_relatives(countery+1, counterx+1);
 }

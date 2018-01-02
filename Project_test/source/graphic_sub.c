@@ -41,9 +41,15 @@ void fill_sub(){
 		}
 	}
 	fill_19x19_button(5,235,GREY,LIGHT_GREY);
-	fill_19x19_button(24,235,GREY,LIGHT_GREY);
 	fill_19x19_flag(5,235);
+	fill_19x19_button(24,235,GREY,LIGHT_GREY);
 	fill_19x19_no_flag(24,235);
+	fill_19x19_button(50,235,GREY,LIGHT_GREY);
+	fill_19x19_sound(50,235);
+	fill_19x19_button(69,235,GREY,LIGHT_GREY);
+	fill_19x19_no_sound(69,235);
+	fill_19x19_button(95,235,GREY,LIGHT_GREY);
+	fill_19x19_stop(95,235);
 }
 
 void fillScreen_Sub(u16 color){
@@ -656,7 +662,133 @@ void fill_19x19_no_flag(unsigned int top, unsigned int left)
 	}
 
 }
+void fill_19x19_sound (unsigned int top, unsigned int left)
+{
+	int col, row;
+	for (row = 6; row<11; row++)
+	{
+		for(col = 3; col<6; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = WHITE;
+		}
+	}
+	for (row = 5; row<12; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(7+left)] =WHITE;
+	}
+	for (row = 4; row<13; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(8+left)] =WHITE;
+	}
+	for (row = 3; row<14; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(9+left)] =WHITE;
+	}
+	BG_MAP_RAM_SUB(0)[256*(6+top)+(11+left)] = 	WHITE;
+	BG_MAP_RAM_SUB(0)[256*(4+top)+(13+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(5+top)+(14+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(10+top)+(11+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(12+top)+(13+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(11+top)+(14+left)] = WHITE;
+	for (row = 7; row<10; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(12+left)] =WHITE;
+	}
+	for (row = 6; row<11; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(15+left)] =WHITE;
+	}
 
+}
+void fill_19x19_no_sound (unsigned int top, unsigned int left)
+{
+	int col, row,i;
+	for (row = 6; row<11; row++)
+	{
+		for(col = 3; col<6; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = WHITE;
+		}
+	}
+	for (row = 5; row<12; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(7+left)] =WHITE;
+	}
+	for (row = 4; row<13; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(8+left)] =WHITE;
+	}
+	for (row = 3; row<14; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(9+left)] =WHITE;
+	}
+	BG_MAP_RAM_SUB(0)[256*(6+top)+(11+left)] = 	WHITE;
+	BG_MAP_RAM_SUB(0)[256*(4+top)+(13+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(5+top)+(14+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(10+top)+(11+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(12+top)+(13+left)] = WHITE;
+	BG_MAP_RAM_SUB(0)[256*(11+top)+(14+left)] = WHITE;
+	for (row = 7; row<10; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(12+left)] =WHITE;
+	}
+	for (row = 6; row<11; row++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(15+left)] =WHITE;
+	}
+	row = 3;
+	col = 3;
+	i =0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col ++;
+		i ++;
+	}
+	row = 4;
+	col = 3;
+	i = 0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col ++;
+		i ++;
+	}
+	row = 3;
+	col = 15;
+	i = 0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col --;
+		i ++;
+	}
+	row = 3;
+	col = 14;
+	i = 0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col --;
+		i ++;
+	}
 
+}
+
+void fill_19x19_stop(unsigned int top, unsigned int left)
+{
+	int col, row;
+	for (row = 5; row<14; row++)
+	{
+		for(col = 5; col<14; col++)
+		{
+			BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = BLACK;
+		}
+	}
+}
 
 

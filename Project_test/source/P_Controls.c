@@ -5,11 +5,10 @@
 #define ON 2
 int bool_start ;
 int verification;
-int control_flags;
 int flag_mode_control;
+int stopTouch;
 
 void handleTouchPad(){
-
 
 	if (bool_start == 1)
 	{
@@ -20,24 +19,43 @@ void handleTouchPad(){
 		{
 			int x = touch.px;
 			int y = touch.py;
-			/*
+
 			if (x>235 && x<250)
 			{
 				if(y>5 && y<22)
 				{
-					if ((control_flags % 2) != 0)
-					{
-						fill_19x19_button(5, 235, GREY, PINK);
-						fill_19x19_flag(5,235);
-						flag_mode_control = ON;
-					}
-					 if (control_flags % 2 == 0)
-					{
-						fill_19x19_button(5, 235, GREY, LIGHT_GREY);
-						fill_19x19_flag(5,235);
-						flag_mode_control = OFF;
-					}
-					 control_flags++;
+					fill_19x19_button(24, 235, GREY, LIGHT_GREY);
+					fill_19x19_no_flag(24,235);
+					fill_19x19_button(5, 235, GREY, PINK);
+					fill_19x19_flag(5,235);
+					flag_mode_control = ON;
+				}
+				if (y>24 && y<43)
+				{
+					fill_19x19_button(5, 235, GREY, LIGHT_GREY);
+					fill_19x19_flag(5,235);
+					fill_19x19_button(24, 235, GREY, PINK);
+					fill_19x19_no_flag(24,235);
+					flag_mode_control = OFF;
+				}
+				if (y>50 && y<69)
+				{
+					Audio_PlayMusic();
+				}
+				if (y>69 && y<88)
+				{
+					stopMusic();
+				}
+				if (y>95 && y<114)
+				{
+					verification = 0;
+					bool_start = 0;
+					irqDisable(IRQ_TIMER0);
+					stopTimer();
+					stopMusic();
+					changeColorDisp_Main(BLACK);
+					configureGraphics_Main_Up();
+					fill_sub();
 				}
 			}
 			if (flag_mode_control == OFF)
@@ -48,17 +66,20 @@ void handleTouchPad(){
 			{
 				flag_mode(x,y);
 			}
-			*/
-			normal_mode(x,y);
-			}
-
+		}
 	}
 	}
+void stopTouching()
+{
+	stopTouch = 0;
+}
 void flag_mode(int x,int y)
 {
-	if (x>= 32 && x<=222)
+	if(stopTouch == 1)
 	{
-		int compteur_x=0;
+		if (x>= 32 && x<=222)
+		{
+			int compteur_x=0;
 			int compteur_y=0;
 			if (x>= 32){
 				while (y>=19)
@@ -74,31 +95,32 @@ void flag_mode(int x,int y)
 
 				fill_19x19_flag(compteur_y*19, compteur_x*19+32);
 			}
+		}
 	}
-
 
 }
 void normal_mode(int x, int y)
 {
-	int compteur_x=0;
-	int compteur_y=0;
-	if (x>= 32){
-		while (y>=19)
-		{
-			y = y-19;
-			compteur_y++;
+	if(stopTouch == 1)
+	{
+		int compteur_x=0;
+		int compteur_y=0;
+		if (x>= 32){
+			while (y>=19)
+			{
+				y = y-19;
+				compteur_y++;
+			}
+			while (x>=51)
+			{
+				x = x-19;
+				compteur_x++;
+			}
+			on_matrix_clicked(compteur_y, compteur_x);	//x->column, y->row
+			Result_Effect_Play();
 		}
-		while (x>=51)
-		{
-			x = x-19;
-			compteur_x++;
-		}
-		//fill_19x19_button(compteur_y*19, comptechur_x*19+32, GREY, WHITE);
-		//fill_19x19_eight(compteur_y*19, compteur_x*19+32,RED);
-		//fill_19x19_bomb(compteur_y*19, compteur_x*19+32);
-		on_matrix_clicked(compteur_y, compteur_x);	//x->column, y->row
-		Result_Effect_Play();
 	}
+
 }
 
 void handleInput(){
@@ -118,8 +140,9 @@ void handleInput(){
 	if( keys & KEY_START){
 		if (verification == 1)
 		{
-			// start the game
 			bool_start = 1;
+			stopTouch = 1;
+			flag_mode_control = OFF;
 			fill_sub();
 			init_game(level);
 			mmStart(MOD_INFLUENCA, MM_PLAY_LOOP);
