@@ -51,7 +51,6 @@ game.o:  \
   /opt/devkitPro/libnds/include/nds/system.h \
   /opt/devkitPro/libnds/include/nds/arm9/decompress.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h \
-  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/bomb.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_main.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h
@@ -157,8 +156,6 @@ game.o:  \
 /opt/devkitPro/libnds/include/nds/arm9/decompress.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h:
-
-/home/nds/files/workspace/Minesweeper_ds/Project_test/build/bomb.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_main.h:
 
