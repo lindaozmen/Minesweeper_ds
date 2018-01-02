@@ -17,7 +17,6 @@ int main(void) {
 	Audio_Init();
     configureGraphics_Main_Up();
 	configureGraphics_Sub();
-	init_game(1);
 
     while(1)
     {

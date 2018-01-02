@@ -1,4 +1,5 @@
 #include "P_Controls.h"
+#include "game.h"
 
 int bool_start ;
 int verification;
@@ -27,9 +28,10 @@ void handleTouchPad(){
 					x = x-19;
 					compteur_x++;
 				}
-				fill_19x19_button(compteur_y*19, compteur_x*19+32, GREY, WHITE);
+				//fill_19x19_button(compteur_y*19, comptechur_x*19+32, GREY, WHITE);
 				//fill_19x19_eight(compteur_y*19, compteur_x*19+32,RED);
-				fill_19x19_bomb(compteur_y*19, compteur_x*19+32);
+				//fill_19x19_bomb(compteur_y*19, compteur_x*19+32);
+				on_matrix_clicked(compteur_y, compteur_x);	//x->column, y->row
 				Result_Effect_Play();
 			}
 		}
@@ -39,15 +41,16 @@ void handleTouchPad(){
 void handleInput(){
 	scanKeys();
 	unsigned keys = keysDown();
+	int level = 1; //default easy
 	if(keys & KEY_Y)
 	{
-		//playerPlaysTen();
+		level = 1;
 		verification = 1;
 	}
 	if (keys & KEY_A)
 	{
+		level = 2;
 		verification = 1;
-		//playerPlaysTwenty();
 	}
 	if( keys & KEY_START){
 		if (verification == 1)
@@ -55,6 +58,7 @@ void handleInput(){
 			// start the game
 			bool_start = 1;
 			fill_sub();
+			init_game(level);
 			mmStart(MOD_INFLUENCA, MM_PLAY_LOOP);
 			initChronoDisp_Main();
 			Audio_PlayMusic();

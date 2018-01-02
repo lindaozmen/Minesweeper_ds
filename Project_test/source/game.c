@@ -28,11 +28,6 @@
 #define GAME_ROW	(ROW - 2)
 #define GAME_COL	(COL - 2)
 
-typedef struct tagCELL_INFO {
-	int env_bomb_count;
-	int is_bomb;
-} CELL_INFO;
-
 PRIVATE void fill_array(int number_of_bombs);
 PRIVATE int get_sum(int i, int j);
 PRIVATE void calculate_numbers();
@@ -41,6 +36,21 @@ PRIVATE void show_empty_relatives(int i, int j);
 PRIVATE void show_bombs(void);
 
 PRIVATE CELL_INFO g_matrix[ROW][COL];
+
+PUBLIC void init_game(int level)
+{
+	srand(TIMER0_DATA);
+	int i, j;
+
+	for(i = 0; i < ROW; ++i)
+		for(j = 0; j < COL; ++j) {
+			g_matrix[i][j].env_bomb_count = 0;
+			g_matrix[i][j].is_bomb = 0;
+			g_matrix[i][j].uncovered = 0;
+		}
+
+	fill_array(get_number_of_bombs(level)); /* matrisi random dolduruyor */
+}
 
 PRIVATE void fill_array(int number_of_bombs)
 {
@@ -107,12 +117,6 @@ PRIVATE int get_number_of_bombs(int level)
 	return number_of_bombs;
 }
 
-PUBLIC void init_game(int level)
-{
-	srand(TIMER0_DATA);
-	fill_array(get_number_of_bombs(level)); /* matrisi random dolduruyor */
-}
-
 PRIVATE void show_empty_relatives(int i, int j)
 {
 	if (i < 1 || i > GAME_ROW || j < 1 || j > GAME_COL)
@@ -122,11 +126,9 @@ PRIVATE void show_empty_relatives(int i, int j)
 		return;
 
 	if (g_matrix[i][j].env_bomb_count > 0) {
-		printf("Uncover:(%d, %d):%d\n", i, j, g_matrix[i][j].env_bomb_count);
 		g_matrix[i][j].uncovered = 1;
 	}
 	else {
-		printf("Uncover:(%d, %d):0\n", i, j);
 		g_matrix[i][j].uncovered = 1;
 		show_empty_relatives(i - 1, j - 1);
 		show_empty_relatives(i - 1, j);
@@ -137,43 +139,55 @@ PRIVATE void show_empty_relatives(int i, int j)
 		show_empty_relatives(i + 1, j);
 		show_empty_relatives(i + 1, j + 1);
 	}
+
+	if (g_matrix[i][j].env_bomb_count == 0)
+		fill_19x19_button((i-1)*19, (j-1)*19+32, GREY, LIGHT_GREY);
+	else if (g_matrix[i][j].env_bomb_count == 1)
+		fill_19x19_one((i-1)*19, (j-1)*19+32, BLUE);
+	else if (g_matrix[i][j].env_bomb_count == 2)
+			fill_19x19_two((i-1)*19, (j-1)*19+32, GREEN);
+	else if (g_matrix[i][j].env_bomb_count == 3)
+			fill_19x19_three((i-1)*19, (j-1)*19+32, RED);
+	else if (g_matrix[i][j].env_bomb_count == 4)
+			fill_19x19_four((i-1)*19, (j-1)*19+32, YELLOW);
+	else if (g_matrix[i][j].env_bomb_count == 5)
+			fill_19x19_five((i-1)*19, (j-1)*19+32, DARK_GREEN);
+	else if (g_matrix[i][j].env_bomb_count == 6)
+			fill_19x19_six((i-1)*19, (j-1)*19+32, LIGHT_BLUE);
+	else if (g_matrix[i][j].env_bomb_count == 7)
+			fill_19x19_seven((i-1)*19, (j-1)*19+32, GREY);
+	else if (g_matrix[i][j].env_bomb_count == 8)
+			fill_19x19_eight((i-1)*19, (j-1)*19+32, WHITE);
 }
 
-PUBLIC void on_matrix_clicked(int i, int j)
+PRIVATE void show_bombs()
 {
+	int i, j;
+
+	for (i = 1; i < GAME_ROW; ++i)
+		for (j = 1; j < GAME_COL; ++j)
+			if (g_matrix[i][j].is_bomb)
+				fill_19x19_bomb((i-1)*19, (j-1)*19+32);
+
+}
+
+PUBLIC void on_matrix_clicked(int countery, int counterx)
+{
+/*
 	// +1 because of the extra frame on g_matrix
 	if (g_matrix[i+1][j+1].is_bomb) {
 #ifdef TEST
-		fill_19x19_button(j*19, i*19+32, GREY, BLACK);
+		fill_19x19_bomb(j*19, i*19+32);
 #endif
 		return;
 	}
+*/
 
-	if (g_matrix[i][j].is_bomb) {
+	// +1 because of the extra frame on g_matrix
+	if (g_matrix[countery+1][counterx+1].is_bomb)
 		show_bombs();
-#ifdef TEST
-		printf("lose\n");
-#endif
-		return;
-	}
-
-	show_empty_relatives(i, j);
-
-	if (g_matrix[i+1][j+1].env_bomb_count == 1) {
-#ifdef TEST
-		fill_19x19_button(j*19, i*19+32, GREY, BLUE);
-#endif
-	}
-	else if (g_matrix[i+1][j+1].env_bomb_count == 2) {
-#ifdef TEST
-		fill_19x19_button(j*19, i*19+32, GREY, GREEN);
-#endif
-	}
-	else if (g_matrix[i+1][j+1].env_bomb_count == 3) {
-#ifdef TEST
-		fill_19x19_button(j*19, i*19+32, GREY, YELLOW);
-#endif
-	}
+	else
+		show_empty_relatives(countery+1, counterx+1);
 }
 
 

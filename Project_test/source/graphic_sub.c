@@ -31,6 +31,17 @@ void configBG2_Sub(){
     fillScreen_Sub(WHITE);
 }
 
+void fill_sub(){
+	int i,j;
+	for ( j = 32; j<225; j+=19)
+	{
+		for(i = 0; i<192; i+=19)
+		{
+			fill_19x19_button(i, j, GREY, LIGHT_GREY);
+		}
+	}
+}
+
 void fillScreen_Sub(u16 color){
 	//Fill the buffer of the screen with the given input color
 	int i,j;
@@ -38,7 +49,7 @@ void fillScreen_Sub(u16 color){
 		for(j = 0;j<256; j++){
 			BG_BMP_RAM_SUB(0)[i*256+j] = color;
 		}
-}
+	}
 }
 
 void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in) {
@@ -498,16 +509,7 @@ void fill_19x19_bomb(unsigned int top, unsigned int left)
 
 }
 
-void fill_sub(){
-	int i,j;
-	for ( j = 32; j<225; j+=19)
-	{
-		for(i = 0; i<192; i+=19)
-		{
-			fill_19x19_button(i, j, GREY, LIGHT_GREY);
-		}
-	}
-}
+
 
 
 
