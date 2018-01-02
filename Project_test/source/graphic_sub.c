@@ -27,7 +27,6 @@ void configBG2_Sub(){
     REG_BG2PC_SUB = 0;
     REG_BG2PB_SUB = 0;
     REG_BG2PD_SUB = 256;
-
     fillScreen_Sub(WHITE);
 }
 
@@ -38,8 +37,13 @@ void fill_sub(){
 		for(i = 0; i<192; i+=19)
 		{
 			fill_19x19_button(i, j, GREY, LIGHT_GREY);
+
 		}
 	}
+	fill_19x19_button(5,235,GREY,LIGHT_GREY);
+	fill_19x19_button(24,235,GREY,LIGHT_GREY);
+	fill_19x19_flag(5,235);
+	fill_19x19_no_flag(24,235);
 }
 
 void fillScreen_Sub(u16 color){
@@ -47,7 +51,7 @@ void fillScreen_Sub(u16 color){
 	int i,j;
 	for(i = 0; i<192; i++){
 		for(j = 0;j<256; j++){
-			BG_BMP_RAM_SUB(0)[i*256+j] = color;
+			BG_BMP_RAM_SUB(0)[i*256+j] = PINK_TIMER;
 		}
 	}
 }
@@ -55,7 +59,7 @@ void fillScreen_Sub(u16 color){
 void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in) {
 	//Sanity check. If the coordinates are not correct (the button will be
 	//partially or fully outside the screen) return without doing anything
-	if (top > 192 || left > 220) return;
+	if (top > 192 || (left > 220 && left != 235)) return;
 
 	//Draw the button of 19x19 pixels given the top left corner and the outside
 	//color (out) and the inside color (in)
@@ -506,10 +510,152 @@ void fill_19x19_bomb(unsigned int top, unsigned int left)
 		{
 				BG_MAP_RAM_SUB(0)[256*(12+top)+(col+left)] = BLACK;
 		}
-
 }
 
+void fill_19x19_flag(unsigned int top, unsigned int left)
+{
+	int col, row;
+	for (row = 4-2; row<13-2; row++)
+	{
+		for(col = 10; col<12; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = RED;
+		}
+	}
+	for (row = 5-2; row<12-2; row++)
+	{
+		for(col = 8; col<10; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = RED;
+		}
+	}
+	for (row = 6-2; row<11-2; row++)
+	{
+		for(col = 6; col<8; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =	RED ;
+		}
+	}
+	for (row = 7-2; row<10-2; row++)
+	{
+		for(col = 4; col<6; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =	RED ;
+		}
+	}
+	for (col = 2; col<4; col++)
+	{
+		BG_MAP_RAM_SUB(0)[256*(8-2+top)+(col+left)] = RED;
+	}
+	for (row = 13-2; row<16-2; row++)
+	{
+		for(col = 10; col<12; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =	BLACK;
+		}
+	}
+	for(col = 7; col<15; col++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(16-2+top)+(col+left)] = BLACK;
+	}
+	for(col = 5; col<17; col++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(17-2+top)+(col+left)] = BLACK;
+	}
+}
 
+void fill_19x19_no_flag(unsigned int top, unsigned int left)
+{
+	int col, row,i;
+	for (row = 4-2; row<13-2; row++)
+	{
+		for(col = 10; col<12; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = RED;
+		}
+	}
+	for (row = 5-2; row<12-2; row++)
+	{
+		for(col = 8; col<10; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] = RED;
+		}
+	}
+	for (row = 6-2; row<11-2; row++)
+	{
+		for(col = 6; col<8; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =	RED ;
+		}
+	}
+	for (row = 7-2; row<10-2; row++)
+	{
+		for(col = 4; col<6; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =	RED ;
+		}
+	}
+	for (col = 2; col<4; col++)
+	{
+		BG_MAP_RAM_SUB(0)[256*(8-2+top)+(col+left)] = RED;
+	}
+	for (row = 13-2; row<16-2; row++)
+	{
+		for(col = 10; col<12; col++)
+		{
+				BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =	BLACK;
+		}
+	}
+	for(col = 7; col<15; col++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(16-2+top)+(col+left)] = BLACK;
+	}
+	for(col = 5; col<17; col++)
+	{
+			BG_MAP_RAM_SUB(0)[256*(17-2+top)+(col+left)] = BLACK;
+	}
+	row = 3;
+	col = 3;
+	i =0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col ++;
+		i ++;
+	}
+	row = 4;
+	col = 3;
+	i = 0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col ++;
+		i ++;
+	}
+	row = 3;
+	col = 15;
+	i = 0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col --;
+		i ++;
+	}
+	row = 3;
+	col = 14;
+	i = 0;
+	while (i<= 11)
+	{
+		BG_MAP_RAM_SUB(0)[256*(row+top)+(col+left)] =BLACK;
+		row ++;
+		col --;
+		i ++;
+	}
+
+}
 
 
 
