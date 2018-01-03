@@ -222,7 +222,14 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 		show_empty_relatives(countery+1, counterx+1);
 }
 
-PUBLIC void flagged(int countery, int counterx)
+PUBLIC int flagged(int countery, int counterx)
 {
-	g_matrix[countery+1][counterx+1].flagged = 1;
+	int can_be_flagged = 0;
+
+	if (!g_matrix[countery+1][counterx+1].uncovered) {
+		can_be_flagged = 1;
+		g_matrix[countery+1][counterx+1].flagged = 1;
+	}
+
+	return can_be_flagged;
 }
