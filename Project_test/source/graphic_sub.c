@@ -21,7 +21,6 @@ void configureGraphics_Sub()
 
 void configBG2_Sub(){
 	BGCTRL_SUB[2] = BG_BMP_BASE(0) | BG_BMP16_256x256;
-
     // Set up affine matrix
     REG_BG2PA_SUB = 256;
     REG_BG2PC_SUB = 0;
@@ -37,7 +36,6 @@ void fill_sub(){
 		for(i = 0; i<192; i+=19)
 		{
 			fill_19x19_button(i, j, GREY, LIGHT_GREY);
-
 		}
 	}
 	fill_19x19_button(5,235,GREY,LIGHT_GREY);
@@ -863,8 +861,27 @@ void fill_19x19_smiley_lose(unsigned int top, unsigned int left)
 
 void fill_19x19_smiley_win(unsigned int top, unsigned int left)
 {
-	int row,col;
+	int col;
 	fill_19x19_smiley_face(top,left);
-
+	for(col = 3; col<16; col++){
+			BG_MAP_RAM_SUB(0)[256*(7+top)+(col+left)] = BLACK;
+	}
+	for(col = 5; col<9; col++){
+			BG_MAP_RAM_SUB(0)[256*(8+top)+(col+left)] = BLACK;
+	}
+	for(col = 11; col<15; col++){
+			BG_MAP_RAM_SUB(0)[256*(8+top)+(col+left)] = BLACK;
+	}
+	for(col = 6; col<9; col++){
+			BG_MAP_RAM_SUB(0)[256*(9+top)+(col+left)] = BLACK;
+	}
+	for(col = 13; col<15; col++){
+			BG_MAP_RAM_SUB(0)[256*(9+top)+(col+left)] = BLACK;
+	}
+	BG_MAP_RAM_SUB(0)[256*(12+top)+(8+left)] =  BLACK;
+	BG_MAP_RAM_SUB(0)[256*(12+top)+(12+left)] = BLACK;
+	for(col = 9; col<12; col++){
+			BG_MAP_RAM_SUB(0)[256*(13+top)+(col+left)] = BLACK;
+	}
 }
 

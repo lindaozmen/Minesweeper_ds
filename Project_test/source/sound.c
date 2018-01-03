@@ -16,6 +16,7 @@ void Audio_Init()
 	//Load effects
 	mmLoadEffect(SFX_EXPLOSION);
 	mmLoadEffect(SFX_RESULT);
+	mmLoadEffect(SFX_APPLAUSE);
 
 }
 
@@ -38,4 +39,7 @@ void stopMusic()
 }
 void Result_Effect_Play(){
 	mmEffect(SFX_RESULT);
+}
+void Applause_Effect_Play(){
+	mmEffect(SFX_APPLAUSE);
 }
