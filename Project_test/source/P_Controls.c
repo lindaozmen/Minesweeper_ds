@@ -3,6 +3,9 @@
 
 #define OFF 1
 #define ON 2
+
+int level = 1; //default easy
+
 int bool_start ;
 int verification;
 int flag_mode_control;
@@ -126,7 +129,7 @@ void normal_mode(int x, int y)
 void handleInput(){
 	scanKeys();
 	unsigned keys = keysDown();
-	int level = 1; //default easy
+
 	if(keys & KEY_Y)
 	{
 		level = 1;
@@ -137,7 +140,7 @@ void handleInput(){
 		level = 2;
 		verification = 1;
 	}
-	if( keys & KEY_START){
+	if(keys & KEY_START){
 		if (verification == 1)
 		{
 			bool_start = 1;

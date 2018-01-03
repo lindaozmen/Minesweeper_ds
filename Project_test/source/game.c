@@ -191,8 +191,8 @@ PRIVATE void show_bombs()
 {
 	int i, j;
 
-	for (i = 1; i < GAME_ROW; ++i)
-		for (j = 1; j < GAME_COL; ++j)
+	for (i = 1; i <= GAME_ROW; ++i)
+		for (j = 1; j <= GAME_COL; ++j)
 			if (g_matrix[i][j].is_bomb)
 			{
 				fill_19x19_button((i-1)*19, (j-1)*19+32, GREY, WHITE);
