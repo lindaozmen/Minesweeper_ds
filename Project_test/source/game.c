@@ -233,3 +233,18 @@ PUBLIC int flagged(int countery, int counterx)
 
 	return can_be_flagged;
 }
+
+PUBLIC int is_finished()
+{
+	int i, j;
+	int finished = 1;
+
+	for (i = 1; i <= GAME_ROW; ++i)
+		for (j = 1; j <= GAME_COL; ++j)
+		{
+			if ((!g_matrix[i][j].uncovered) && (!g_matrix[i][j].is_bomb))
+				finished = 0;
+		}
+
+	return finished;
+}
