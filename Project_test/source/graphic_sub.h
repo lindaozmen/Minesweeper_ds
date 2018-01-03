@@ -24,7 +24,7 @@ void fill_19x19_five(unsigned int top, unsigned int left);
 void fill_19x19_six(unsigned int top, unsigned int left);
 void fill_19x19_seven(unsigned int top, unsigned int left);
 void fill_19x19_eight(unsigned int top, unsigned int left);
-void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in); //The buttons
+void fill_19x19_button(unsigned int top, unsigned int left, u16 out, u16 in);
 void fill_19x19_bomb(unsigned int top, unsigned int left);
 void fill_19x19_flag(unsigned int top, unsigned int left);
 void fill_19x19_no_flag(unsigned int top, unsigned int left);
