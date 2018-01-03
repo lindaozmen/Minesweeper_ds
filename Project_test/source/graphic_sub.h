@@ -31,6 +31,10 @@ void fill_19x19_no_flag(unsigned int top, unsigned int left);
 void fill_19x19_sound (unsigned int top, unsigned int left);
 void fill_19x19_no_sound (unsigned int top, unsigned int left);
 void fill_19x19_stop(unsigned int top, unsigned int left);
+void fill_19x19_smiley_face(unsigned int top, unsigned int left);
+void fill_19x19_smiley_happy(unsigned int top, unsigned int left);
+void fill_19x19_smiley_lose(unsigned int top, unsigned int left);
+void fill_19x19_smiley_win(unsigned int top, unsigned int left);
 
 
 /************************

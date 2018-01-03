@@ -200,7 +200,7 @@ PRIVATE void show_bombs()
 		{
 			if (!g_matrix[i][j].flagged){
 				if (g_matrix[i][j].is_bomb){
-					fill_19x19_button((i-1)*19, (j-1)*19+32, GREY, WHITE);
+					fill_19x19_button((i-1)*19, (j-1)*19+32, GREY, RED);
 					fill_19x19_bomb((i-1)*19, (j-1)*19+32);
 				}
 			}
@@ -212,6 +212,8 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 	// +1 because of the extra frame on g_matrix
 	if (g_matrix[countery+1][counterx+1].is_bomb)
 	{
+		fill_19x19_button(0,0,GREY,LIGHT_GREY);
+		fill_19x19_smiley_lose(0,0);
 		show_bombs();
 		irqDisable(IRQ_TIMER0);
 		Explosion_Effect_Play();
