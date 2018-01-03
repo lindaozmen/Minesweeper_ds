@@ -156,8 +156,8 @@ void flag_mode(int x,int y)
 					compteur_x++;
 				}
 
-				fill_19x19_flag(compteur_y*19, compteur_x*19+32);
-				flagged(compteur_y, compteur_x);
+				if (flagged(compteur_y, compteur_x))
+					fill_19x19_flag(compteur_y*19, compteur_x*19+32);
 			}
 		}
 	}

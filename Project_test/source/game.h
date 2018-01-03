@@ -24,7 +24,7 @@ typedef struct tagCELL_INFO {
 
 void init_game(int level);
 void on_matrix_clicked(int countery, int counterx);
-void flagged(int countery, int counterx);
+int flagged(int countery, int counterx);
 void stopGame();
 
 

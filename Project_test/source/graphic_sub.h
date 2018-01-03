@@ -15,7 +15,7 @@ u16* gfx;
 void configureGraphics_Sub(); // To configure the SUB engine
 void configBG2_Sub();
 void fill_sub(); // Configure the sub engine with all the 100 buttons
-void fillScreen_Sub(u16 color); //Initialize with a color
+void fillScreen_Sub(); //Initialize with a color
 void fill_19x19_one(unsigned int top, unsigned int left);
 void fill_19x19_two(unsigned int top, unsigned int left);
 void fill_19x19_three(unsigned int top, unsigned int left);

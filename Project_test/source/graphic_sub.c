@@ -55,7 +55,7 @@ void fill_sub(){
 
 }
 
-void fillScreen_Sub(u16 color){
+void fillScreen_Sub(){
 	//Fill the buffer of the screen with the given input color
 	int i,j;
 	for(i = 0; i<192; i++){
