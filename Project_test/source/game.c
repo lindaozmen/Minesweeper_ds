@@ -32,10 +32,11 @@
 
 PRIVATE void fill_array(int number_of_bombs);
 PRIVATE int get_sum(int i, int j);
-PRIVATE void calculate_numbers();
+PRIVATE void calculate_numbers(void);
 PRIVATE int get_number_of_bombs(int level);
 PRIVATE void show_empty_relatives(int i, int j);
 PRIVATE void show_bombs(void);
+PRIVATE int is_finished(void);
 
 PRIVATE CELL_INFO g_matrix[ROW][COL];
 
@@ -218,6 +219,8 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 		stopMusic();
 		stopTouching();
 	}
+	else if (is_finished())
+		fillScreen_Sub(); //Insert smiley here :)
 	else
 		show_empty_relatives(countery+1, counterx+1);
 }
@@ -234,7 +237,7 @@ PUBLIC int flagged(int countery, int counterx)
 	return can_be_flagged;
 }
 
-PUBLIC int is_finished()
+PRIVATE int is_finished()
 {
 	int i, j;
 	int finished = 1;
