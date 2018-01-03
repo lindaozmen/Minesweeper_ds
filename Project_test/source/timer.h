@@ -17,9 +17,12 @@
 #include "string.h"
 #include "numbers.h"
 #include "up.h"
+#include "P_Controls.h"
 
 //Define to use paletes easily
 #define PALETTE(x)	(x << 12)
+
+
 
 /************************
  * Macros for the colors

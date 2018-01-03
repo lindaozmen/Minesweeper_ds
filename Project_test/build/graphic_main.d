@@ -54,7 +54,13 @@ graphic_main.o:  \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/timer.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/game.h \
-  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/source/sound.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/soundbank.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/soundbank_bin.h \
+  /opt/devkitPro/libnds/include/maxmod9.h \
+  /opt/devkitPro/libnds/include/mm_types.h
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_main.h:
 
@@ -165,3 +171,15 @@ graphic_main.o:  \
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/game.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/source/sound.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/build/soundbank.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/build/soundbank_bin.h:
+
+/opt/devkitPro/libnds/include/maxmod9.h:
+
+/opt/devkitPro/libnds/include/mm_types.h:
