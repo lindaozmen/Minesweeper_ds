@@ -122,6 +122,9 @@ void stopTimer()
 
 void IRQ_initialize()
 {
+	//Initiate all to 0
+	stopTimer();
+
 	// Timer 0 will trigger an interrupt every 1 ms
 	TIMER0_DATA = TIMER_FREQ_1024(1000);
 	TIMER0_CR = TIMER_DIV_1024 | TIMER_IRQ_REQ | TIMER_ENABLE;

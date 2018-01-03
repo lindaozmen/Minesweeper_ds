@@ -293,129 +293,128 @@ Linker script and memory map
                 0x02002b1c                Audio_Init
                 0x02002b7c                Result_Effect_Play
                 0x02002b70                stopMusic
- .text          0x02002b8c      0x530 timer.o
-                0x02003000                changeColorDisp_Main
+ .text          0x02002b8c      0x534 timer.o
+                0x02003004                changeColorDisp_Main
                 0x02002f70                ISR_VBlank
-                0x0200301c                initChronoDisp_Main
+                0x02003020                initChronoDisp_Main
                 0x02002ee4                updateChronoDisp_Main
                 0x02002ce4                updateChronoDisp
                 0x02002f14                ISR_countdown_timer
                 0x02002fa0                stopTimer
                 0x02002fc0                IRQ_initialize
                 0x02002b8c                printDigit
- .text          0x020030bc      0xa28 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
-                0x020037ec                con_write
-                0x020030bc                consoleGetDefault
-                0x02003640                consoleInit
-                0x02003594                consoleSetFont
-                0x02003ab4                nocash_write
-                0x02003170                consolePrintChar
-                0x020035e0                consoleClear
-                0x020035b8                consoleSetWindow
-                0x020030c4                consoleSelect
-                0x020037b0                consoleDemoInit
-                0x0200331c                consoleLoadFont
-                0x020035f4                consoleDebugInit
- .text          0x02003ae4       0xec /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
-                0x02003ae4                initSystem
- .text          0x02003bd0      0x134 /opt/devkitPro/libnds/lib/libnds9.a(keys.o)
-                0x02003c90                keysSetRepeat
-                0x02003c80                keysDownRepeat
-                0x02003ccc                keysCurrent
-                0x02003c60                keysHeld
-                0x02003cb4                keysUp
-                0x02003c6c                keysDown
-                0x02003bd0                scanKeys
- .text          0x02003d04       0xf4 /opt/devkitPro/libnds/lib/libnds9.a(system.o)
-                0x02003db4                systemMsgHandler
-                0x02003d4c                powerOn
-                0x02003d9c                powerValueHandler
-                0x02003d04                ledBlink
-                0x02003d80                systemSleep
-                0x02003d1c                powerOff
- .text          0x02003df8       0x4c /opt/devkitPro/libnds/lib/libnds9.a(touch.o)
-                0x02003df8                touchRead
-                0x02003e20                touchReadXY
- .text          0x02003e44      0x144 /opt/devkitPro/libnds/lib/libnds9.a(video.o)
-                0x02003ef8                vramSetBankF
-                0x02003e88                vramRestoreMainBanks
-                0x02003f20                vramSetBankH
-                0x02003ed0                vramSetBankD
-                0x02003ee4                vramSetBankE
-                0x02003f48                setBrightness
-                0x02003f0c                vramSetBankG
-                0x02003ea8                vramSetBankB
-                0x02003ebc                vramSetBankC
-                0x02003f34                vramSetBankI
-                0x02003e44                vramSetMainBanks
-                0x02003e94                vramSetBankA
- .text          0x02003f88      0xa94 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
-                0x020040d0                glTexCoord2f32
-                0x0200440c                glTexImage2D
-                0x02004044                glGenTextures
-                0x02004014                glResetTextures
-                0x02004728                glRotatef32i
-                0x020043b4                glTexLoadPal
-                0x0200415c                glTexParameter
-                0x02003f88                glGetGlobals
-                0x020041dc                getNextPaletteSlot
-                0x02004230                vramGetBank
-                0x020041cc                alignVal
-                0x020041b4                glGetTexParameter
-                0x020043e8                gluTexLoadPal
-                0x02003f90                glMaterialf
-                0x02004084                glBindTexture
-                0x0200418c                glGetTexturePointer
-                0x020042f0                vramIsTextureBank
-                0x020040b4                glColorTable
-                0x02004350                getNextTextureSlot
-                0x02004584                glInit_C
- .text          0x02004a1c     0x18b8 /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
-                0x020059b8                fifoInternalRecvPopFirst
-                0x02004aa4                fifoCheckValue32
-                0x02004bb4                fifoCheckDatamsgLength
-                0x020053ac                fifoGetLostWordCount
-                0x0200531c                fifoGetBufferUsage
-                0x0200607c                fifoSendValue32
-                0x02005f8c                fifoInternalSend
-                0x02005084                fifoGetDatamsg
-                0x02004e9c                fifoGetValue32
-                0x02004cb4                fifoGetAddress
-                0x02004c44                fifoCountDatamsg
-                0x02004fec                fifoForceValue32Handler
-                0x02004b2c                fifoCheckDatamsg
-                0x02005958                fifoInternalRecvPeek
-                0x02005eac                fifoInternalAllocFreeBlock
-                0x02004e74                fifoSetAddressHandler
-                0x02005918                fifoInternalProtect
-                0x02005260                fifoForceDatamsgHandler
-                0x02005dc0                fifoInternalSendEnqueue
-                0x02006024                fifoSendDatamsg
-                0x02005bf8                fifoInternalSendEmpty
-                0x02005d44                fifoInternalSendInterrupt
-                0x020060c4                fifoSendAddress
-                0x02005c08                fifoInternalSendDeque
-                0x020053b8                fifoInternalRecvInterrupt
-                0x02004a1c                fifoCheckAddress
-                0x02005f00                fifoInternalFreeCheck
-                0x02005a8c                fifoInternalRecvWordCount
-                0x02005b0c                fifoInternalRecvPushBack
-                0x02005934                fifoInternalUnprotect
-                0x02004e04                fifoForceAddressHandler
-                0x0200505c                fifoSetValue32Handler
-                0x02005cdc                fifoInternalBeginSend
-                0x02006100                fifoInit
-                0x020052f4                fifoSetDatamsgHandler
-                0x02005edc                fifoInternalFreeBlock
- .text          0x020062d4      0x1a8 /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
-                0x020063b4                irqEnable
-                0x020062d8                irqSet
-                0x02006400                irqDisable
-                0x02006338                irqInit
-                0x020062d4                irqDummy
-                0x02006384                irqInitHandler
-                0x0200644c                irqClear
- *fill*         0x0200647c        0x4 ff
+ .text          0x020030c0      0xa28 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
+                0x020037f0                con_write
+                0x020030c0                consoleGetDefault
+                0x02003644                consoleInit
+                0x02003598                consoleSetFont
+                0x02003ab8                nocash_write
+                0x02003174                consolePrintChar
+                0x020035e4                consoleClear
+                0x020035bc                consoleSetWindow
+                0x020030c8                consoleSelect
+                0x020037b4                consoleDemoInit
+                0x02003320                consoleLoadFont
+                0x020035f8                consoleDebugInit
+ .text          0x02003ae8       0xec /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
+                0x02003ae8                initSystem
+ .text          0x02003bd4      0x134 /opt/devkitPro/libnds/lib/libnds9.a(keys.o)
+                0x02003c94                keysSetRepeat
+                0x02003c84                keysDownRepeat
+                0x02003cd0                keysCurrent
+                0x02003c64                keysHeld
+                0x02003cb8                keysUp
+                0x02003c70                keysDown
+                0x02003bd4                scanKeys
+ .text          0x02003d08       0xf4 /opt/devkitPro/libnds/lib/libnds9.a(system.o)
+                0x02003db8                systemMsgHandler
+                0x02003d50                powerOn
+                0x02003da0                powerValueHandler
+                0x02003d08                ledBlink
+                0x02003d84                systemSleep
+                0x02003d20                powerOff
+ .text          0x02003dfc       0x4c /opt/devkitPro/libnds/lib/libnds9.a(touch.o)
+                0x02003dfc                touchRead
+                0x02003e24                touchReadXY
+ .text          0x02003e48      0x144 /opt/devkitPro/libnds/lib/libnds9.a(video.o)
+                0x02003efc                vramSetBankF
+                0x02003e8c                vramRestoreMainBanks
+                0x02003f24                vramSetBankH
+                0x02003ed4                vramSetBankD
+                0x02003ee8                vramSetBankE
+                0x02003f4c                setBrightness
+                0x02003f10                vramSetBankG
+                0x02003eac                vramSetBankB
+                0x02003ec0                vramSetBankC
+                0x02003f38                vramSetBankI
+                0x02003e48                vramSetMainBanks
+                0x02003e98                vramSetBankA
+ .text          0x02003f8c      0xa94 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
+                0x020040d4                glTexCoord2f32
+                0x02004410                glTexImage2D
+                0x02004048                glGenTextures
+                0x02004018                glResetTextures
+                0x0200472c                glRotatef32i
+                0x020043b8                glTexLoadPal
+                0x02004160                glTexParameter
+                0x02003f8c                glGetGlobals
+                0x020041e0                getNextPaletteSlot
+                0x02004234                vramGetBank
+                0x020041d0                alignVal
+                0x020041b8                glGetTexParameter
+                0x020043ec                gluTexLoadPal
+                0x02003f94                glMaterialf
+                0x02004088                glBindTexture
+                0x02004190                glGetTexturePointer
+                0x020042f4                vramIsTextureBank
+                0x020040b8                glColorTable
+                0x02004354                getNextTextureSlot
+                0x02004588                glInit_C
+ .text          0x02004a20     0x18b8 /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
+                0x020059bc                fifoInternalRecvPopFirst
+                0x02004aa8                fifoCheckValue32
+                0x02004bb8                fifoCheckDatamsgLength
+                0x020053b0                fifoGetLostWordCount
+                0x02005320                fifoGetBufferUsage
+                0x02006080                fifoSendValue32
+                0x02005f90                fifoInternalSend
+                0x02005088                fifoGetDatamsg
+                0x02004ea0                fifoGetValue32
+                0x02004cb8                fifoGetAddress
+                0x02004c48                fifoCountDatamsg
+                0x02004ff0                fifoForceValue32Handler
+                0x02004b30                fifoCheckDatamsg
+                0x0200595c                fifoInternalRecvPeek
+                0x02005eb0                fifoInternalAllocFreeBlock
+                0x02004e78                fifoSetAddressHandler
+                0x0200591c                fifoInternalProtect
+                0x02005264                fifoForceDatamsgHandler
+                0x02005dc4                fifoInternalSendEnqueue
+                0x02006028                fifoSendDatamsg
+                0x02005bfc                fifoInternalSendEmpty
+                0x02005d48                fifoInternalSendInterrupt
+                0x020060c8                fifoSendAddress
+                0x02005c0c                fifoInternalSendDeque
+                0x020053bc                fifoInternalRecvInterrupt
+                0x02004a20                fifoCheckAddress
+                0x02005f04                fifoInternalFreeCheck
+                0x02005a90                fifoInternalRecvWordCount
+                0x02005b10                fifoInternalRecvPushBack
+                0x02005938                fifoInternalUnprotect
+                0x02004e08                fifoForceAddressHandler
+                0x02005060                fifoSetValue32Handler
+                0x02005ce0                fifoInternalBeginSend
+                0x02006104                fifoInit
+                0x020052f8                fifoSetDatamsgHandler
+                0x02005ee0                fifoInternalFreeBlock
+ .text          0x020062d8      0x1a8 /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
+                0x020063b8                irqEnable
+                0x020062dc                irqSet
+                0x02006404                irqDisable
+                0x0200633c                irqInit
+                0x020062d8                irqDummy
+                0x02006388                irqInitHandler
+                0x02006450                irqClear
  .text          0x02006480       0x70 /opt/devkitPro/libnds/lib/libnds9.a(biosCalls.o)
                 0x02006490                swiSleep
                 0x020064ca                swiDecompressLZSSVram
@@ -1860,7 +1859,7 @@ Linker script and memory map
  .debug_abbrev  0x0000200f      0x178 /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
  .debug_abbrev  0x00002187       0x12 /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtn.o
 
-.debug_line     0x00000000     0x3bda
+.debug_line     0x00000000     0x3bdb
  *(.debug_line)
  .debug_line    0x00000000       0x49 /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crti.o
  .debug_line    0x00000049      0x209 game.o
@@ -1869,22 +1868,22 @@ Linker script and memory map
  .debug_line    0x000007ac      0x169 main.o
  .debug_line    0x00000915      0x21d P_Controls.o
  .debug_line    0x00000b32      0x1e0 sound.o
- .debug_line    0x00000d12      0x22e timer.o
- .debug_line    0x00000f40      0x751 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
- .debug_line    0x00001691      0x31e /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
- .debug_line    0x000019af      0x2ec /opt/devkitPro/libnds/lib/libnds9.a(keys.o)
- .debug_line    0x00001c9b      0x2d1 /opt/devkitPro/libnds/lib/libnds9.a(system.o)
- .debug_line    0x00001f6c      0x27e /opt/devkitPro/libnds/lib/libnds9.a(touch.o)
- .debug_line    0x000021ea      0x200 /opt/devkitPro/libnds/lib/libnds9.a(video.o)
- .debug_line    0x000023ea      0x595 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
- .debug_line    0x0000297f      0x936 /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
- .debug_line    0x000032b5      0x1d9 /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
- .debug_line    0x0000348e       0xc5 /opt/devkitPro/libnds/lib/libnds9.a(biosCalls.o)
- .debug_line    0x00003553       0x98 /opt/devkitPro/libnds/lib/libnds9.a(debugprint.o)
- .debug_line    0x000035eb       0xc3 /opt/devkitPro/libnds/lib/libnds9.a(interruptDispatcher.o)
- .debug_line    0x000036ae      0x2d0 /opt/devkitPro/libnds/lib/libnds9.a(background.o)
- .debug_line    0x0000397e      0x1dd /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
- .debug_line    0x00003b5b       0x7f /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtn.o
+ .debug_line    0x00000d12      0x22f timer.o
+ .debug_line    0x00000f41      0x751 /opt/devkitPro/libnds/lib/libnds9.a(console.o)
+ .debug_line    0x00001692      0x31e /opt/devkitPro/libnds/lib/libnds9.a(initSystem.o)
+ .debug_line    0x000019b0      0x2ec /opt/devkitPro/libnds/lib/libnds9.a(keys.o)
+ .debug_line    0x00001c9c      0x2d1 /opt/devkitPro/libnds/lib/libnds9.a(system.o)
+ .debug_line    0x00001f6d      0x27e /opt/devkitPro/libnds/lib/libnds9.a(touch.o)
+ .debug_line    0x000021eb      0x200 /opt/devkitPro/libnds/lib/libnds9.a(video.o)
+ .debug_line    0x000023eb      0x595 /opt/devkitPro/libnds/lib/libnds9.a(videoGL.o)
+ .debug_line    0x00002980      0x936 /opt/devkitPro/libnds/lib/libnds9.a(fifosystem.o)
+ .debug_line    0x000032b6      0x1d9 /opt/devkitPro/libnds/lib/libnds9.a(interrupts.o)
+ .debug_line    0x0000348f       0xc5 /opt/devkitPro/libnds/lib/libnds9.a(biosCalls.o)
+ .debug_line    0x00003554       0x98 /opt/devkitPro/libnds/lib/libnds9.a(debugprint.o)
+ .debug_line    0x000035ec       0xc3 /opt/devkitPro/libnds/lib/libnds9.a(interruptDispatcher.o)
+ .debug_line    0x000036af      0x2d0 /opt/devkitPro/libnds/lib/libnds9.a(background.o)
+ .debug_line    0x0000397f      0x1dd /opt/devkitPro/libnds/lib/libnds9.a(trig.o)
+ .debug_line    0x00003b5c       0x7f /opt/devkitPro/devkitARM/lib/gcc/arm-eabi/4.3.3/thumb/crtn.o
 
 .debug_frame    0x00000000     0x1238
  *(.debug_frame)
