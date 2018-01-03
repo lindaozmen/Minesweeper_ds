@@ -137,7 +137,13 @@ void IRQ_initialize()
 
 void changeColorDisp_Main(uint16 c)
 {
-	BG_PALETTE[0] = c;VRAM_A_CR = VRAM_ENABLE | VRAM_A_MAIN_BG;
+	BG_PALETTE[0] = c;
+}
+
+void initChronoDisp_Main()
+{
+	VRAM_A_CR = VRAM_ENABLE
+				| VRAM_A_MAIN_BG;
 	REG_DISPCNT = MODE_0_2D | DISPLAY_BG0_ACTIVE;
 	BGCTRL[0] = BG_32x32 | BG_COLOR_256 | BG_MAP_BASE(0) | BG_TILE_BASE(1);
 
@@ -149,20 +155,4 @@ void changeColorDisp_Main(uint16 c)
 	BG_PALETTE[1] = ARGB16(1,0,0,0);
 	memset(BG_MAP_RAM(0), 32,32*32*2);
 	updateChronoDisp_Main(-1,-1,-1);
-}
-
-void initChronoDisp_Main()
-{
-		VRAM_A_CR = VRAM_ENABLE | VRAM_A_MAIN_BG;
-		REG_DISPCNT = MODE_0_2D | DISPLAY_BG0_ACTIVE;
-		BGCTRL[0] = BG_32x32 | BG_COLOR_256 | BG_MAP_BASE(0) | BG_TILE_BASE(1);
-
-		swiCopy(numbersTiles, BG_TILE_RAM(1), numbersTilesLen);
-		swiCopy(numbersPal, BG_PALETTE, numbersPalLen);
-		IRQ_initialize();
-		irqEnable(IRQ_TIMER0);
-		BG_PALETTE[0] = ARGB16(1,0,31,31);
-		BG_PALETTE[1] = ARGB16(1,0,0,0);
-		memset(BG_MAP_RAM(0), 32,32*32*2);
-		updateChronoDisp_Main(-1,-1,-1);
 }

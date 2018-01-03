@@ -6,7 +6,10 @@
 
 int level = 1; //default easy
 
-
+int bool_start ;
+int verification;
+int flag_mode_control;
+int stopTouch;
 
 void handleInput(){
 	scanKeys();

@@ -198,13 +198,11 @@ PRIVATE void show_bombs()
 	for (i = 1; i <= GAME_ROW; ++i)
 		for (j = 1; j <= GAME_COL; ++j)
 		{
-			if (g_matrix[i][j].flagged)
-					return;
-
-			if (g_matrix[i][j].is_bomb)
-			{
-				fill_19x19_button((i-1)*19, (j-1)*19+32, GREY, WHITE);
-				fill_19x19_bomb((i-1)*19, (j-1)*19+32);
+			if (!g_matrix[i][j].flagged){
+				if (g_matrix[i][j].is_bomb){
+					fill_19x19_button((i-1)*19, (j-1)*19+32, GREY, WHITE);
+					fill_19x19_bomb((i-1)*19, (j-1)*19+32);
+				}
 			}
 		}
 }
