@@ -226,6 +226,7 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 		fill_19x19_button(0,0,GREY,LIGHT_GREY);
 		fill_19x19_smiley_win(0,0);
 		irqDisable(IRQ_TIMER0);
+		stopMusic();
 		Applause_Effect_Play();
 		//fillScreen_Sub(); //Insert smiley here :)
 	}
