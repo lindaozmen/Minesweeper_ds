@@ -19,10 +19,12 @@ typedef struct tagCELL_INFO {
 	int env_bomb_count;
 	int is_bomb;
 	int uncovered;
+	int flagged;
 } CELL_INFO;
 
 void init_game(int level);
 void on_matrix_clicked(int countery, int counterx);
+void flagged(int countery, int counterx);
 void stopGame();
 
 

@@ -49,6 +49,7 @@ PUBLIC void init_game(int level)
 			g_matrix[i][j].env_bomb_count = 0;
 			g_matrix[i][j].is_bomb = 0;
 			g_matrix[i][j].uncovered = 0;
+			g_matrix[i][j].flagged = 0;
 		}
 
 	fill_array(get_number_of_bombs(level)); /* matrisi random dolduruyor */
@@ -124,6 +125,9 @@ PRIVATE void show_empty_relatives(int i, int j)
 	if (i < 1 || i > GAME_ROW || j < 1 || j > GAME_COL)
 		return;
 
+	if (g_matrix[i][j].flagged)
+		return;
+
 	if (g_matrix[i][j].uncovered)
 		return;
 
@@ -193,27 +197,20 @@ PRIVATE void show_bombs()
 
 	for (i = 1; i <= GAME_ROW; ++i)
 		for (j = 1; j <= GAME_COL; ++j)
+		{
+			if (g_matrix[i][j].flagged)
+					return;
+
 			if (g_matrix[i][j].is_bomb)
 			{
 				fill_19x19_button((i-1)*19, (j-1)*19+32, GREY, WHITE);
 				fill_19x19_bomb((i-1)*19, (j-1)*19+32);
 			}
-
-
+		}
 }
 
 PUBLIC void on_matrix_clicked(int countery, int counterx)
 {
-/*
-	// +1 because of the extra frame on g_matrix
-	if (g_matrix[i+1][j+1].is_bomb) {
-#ifdef TEST
-		fill_19x19_bomb(j*19, i*19+32);
-#endif
-		return;
-	}
-*/
-
 	// +1 because of the extra frame on g_matrix
 	if (g_matrix[countery+1][counterx+1].is_bomb)
 	{
@@ -227,4 +224,7 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 		show_empty_relatives(countery+1, counterx+1);
 }
 
-
+PUBLIC void flagged(int countery, int counterx)
+{
+	g_matrix[countery+1][counterx+1].flagged = 1;
+}

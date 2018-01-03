@@ -11,7 +11,7 @@
  * value
  */
 void handleInput();
-void hanndleTouchPad();
+void handleTouchPad();
 void normal_mode(int x, int y);
 void flag_mode(int x,int y);
 void stopTouching();

@@ -11,6 +11,46 @@ int verification;
 int flag_mode_control;
 int stopTouch;
 
+void handleInput(){
+	scanKeys();
+	unsigned keys = keysDown();
+
+	if(keys & KEY_Y)
+	{
+		level = 1;
+		verification = 1;
+	}
+	if (keys & KEY_A)
+	{
+		level = 2;
+		verification = 1;
+	}
+	if(keys & KEY_START){
+		if (verification == 1)
+		{
+			bool_start = 1;
+			stopTouch = 1;
+			flag_mode_control = OFF;
+			fill_sub();
+			init_game(level);
+			mmStart(MOD_INFLUENCA, MM_PLAY_LOOP);
+			initChronoDisp_Main();
+			Audio_PlayMusic();
+		}
+
+	}
+	if (keys & KEY_B){
+		verification = 0;
+		bool_start = 0;
+		irqDisable(IRQ_TIMER0);
+		stopTimer();
+		stopMusic();
+		changeColorDisp_Main(BLACK);
+		configureGraphics_Main_Up();
+	}
+	handleTouchPad();
+}
+
 void handleTouchPad(){
 
 	if (bool_start == 1)
@@ -71,37 +111,8 @@ void handleTouchPad(){
 			}
 		}
 	}
-	}
-void stopTouching()
-{
-	stopTouch = 0;
 }
-void flag_mode(int x,int y)
-{
-	if(stopTouch == 1)
-	{
-		if (x>= 32 && x<=222)
-		{
-			int compteur_x=0;
-			int compteur_y=0;
-			if (x>= 32){
-				while (y>=19)
-				{
-					y = y-19;
-					compteur_y++;
-				}
-				while (x>=51)
-				{
-					x = x-19;
-					compteur_x++;
-				}
 
-				fill_19x19_flag(compteur_y*19, compteur_x*19+32);
-			}
-		}
-	}
-
-}
 void normal_mode(int x, int y)
 {
 	if(stopTouch == 1)
@@ -123,45 +134,36 @@ void normal_mode(int x, int y)
 			Result_Effect_Play();
 		}
 	}
-
 }
 
-void handleInput(){
-	scanKeys();
-	unsigned keys = keysDown();
-
-	if(keys & KEY_Y)
+void flag_mode(int x,int y)
+{
+	if(stopTouch == 1)
 	{
-		level = 1;
-		verification = 1;
-	}
-	if (keys & KEY_A)
-	{
-		level = 2;
-		verification = 1;
-	}
-	if(keys & KEY_START){
-		if (verification == 1)
+		if (x>= 32 && x<=222)
 		{
-			bool_start = 1;
-			stopTouch = 1;
-			flag_mode_control = OFF;
-			fill_sub();
-			init_game(level);
-			mmStart(MOD_INFLUENCA, MM_PLAY_LOOP);
-			initChronoDisp_Main();
-			Audio_PlayMusic();
-		}
+			int compteur_x=0;
+			int compteur_y=0;
+			if (x>= 32){
+				while (y>=19)
+				{
+					y = y-19;
+					compteur_y++;
+				}
+				while (x>=51)
+				{
+					x = x-19;
+					compteur_x++;
+				}
 
+				fill_19x19_flag(compteur_y*19, compteur_x*19+32);
+				flagged(compteur_y, compteur_x);
+			}
+		}
 	}
-	if (keys & KEY_B){
-		verification = 0;
-		bool_start = 0;
-		irqDisable(IRQ_TIMER0);
-		stopTimer();
-		stopMusic();
-		changeColorDisp_Main(BLACK);
-		configureGraphics_Main_Up();
-	}
-	handleTouchPad();
+}
+
+void stopTouching()
+{
+	stopTouch = 0;
 }
