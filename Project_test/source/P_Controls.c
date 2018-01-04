@@ -27,6 +27,11 @@ void handleInput(){
 		level = 2;
 		verification = 1;
 	}
+	if (keys & KEY_B){
+		Selection_Effect_Play();
+		level = 3;
+		verification = 1;
+		}
 	if(keys & KEY_START){
 		if (verification == 1)
 		{
@@ -42,17 +47,7 @@ void handleInput(){
 		}
 
 	}
-	if (keys & KEY_B){
-		verification = 0;
-		bool_start = 0;
-		irqDisable(IRQ_TIMER0);
-		stopTimer();
-		stopMusic();
-		stop_display_timer();
-		changeColorDisp_Main(BLACK);
-		configureGraphics_Main_Up();
-		fill_sub();
-	}
+
 	handleTouchPad();
 }
 
