@@ -2,6 +2,7 @@
 #define SFX_EXPLOSION	1
 #define MOD_INFLUENCA	0
 #define SFX_RESULT	33
+#define SFX_WATER	34
 #define MSL_NSONGS	1
-#define MSL_NSAMPS	34
-#define MSL_BANKSIZE	35
+#define MSL_NSAMPS	35
+#define MSL_BANKSIZE	36

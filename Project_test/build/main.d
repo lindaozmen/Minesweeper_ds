@@ -48,6 +48,8 @@ main.o:  \
   /opt/devkitPro/libnds/include/nds/arm9/sprite.h \
   /opt/devkitPro/libnds/include/nds/system.h \
   /opt/devkitPro/libnds/include/nds/arm9/decompress.h \
+  /opt/devkitPro/libnds/include/fat.h \
+  /opt/devkitPro/libnds/include/nds/disc_io.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_main.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_sub.h \
@@ -59,7 +61,8 @@ main.o:  \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/timer.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/game.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h \
-  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Score.h
 
 /opt/devkitPro/libnds/include/nds.h:
 
@@ -157,6 +160,10 @@ main.o:  \
 
 /opt/devkitPro/libnds/include/nds/arm9/decompress.h:
 
+/opt/devkitPro/libnds/include/fat.h:
+
+/opt/devkitPro/libnds/include/nds/disc_io.h:
+
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/graphic_main.h:
@@ -180,3 +187,5 @@ main.o:  \
 /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Score.h:

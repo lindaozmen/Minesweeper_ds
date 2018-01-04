@@ -59,7 +59,8 @@ timer.o:  \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/soundbank.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/soundbank_bin.h \
   /opt/devkitPro/libnds/include/maxmod9.h \
-  /opt/devkitPro/libnds/include/mm_types.h
+  /opt/devkitPro/libnds/include/mm_types.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Score.h
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/timer.h:
 
@@ -180,3 +181,5 @@ timer.o:  \
 /opt/devkitPro/libnds/include/maxmod9.h:
 
 /opt/devkitPro/libnds/include/mm_types.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Score.h:

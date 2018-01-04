@@ -21,6 +21,7 @@
 #include "graphic_sub.h"
 #include "sound.h"
 #include "P_Controls.h"
+#include "P_Score.h"
 
 #define PRIVATE static
 #define PUBLIC
@@ -225,10 +226,9 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 	{
 		fill_19x19_button(0,0,GREY,LIGHT_GREY);
 		fill_19x19_smiley_win(0,0);
-		irqDisable(IRQ_TIMER0);
+		timer_update_score();
 		stopMusic();
 		Applause_Effect_Play();
-		//fillScreen_Sub(); //Insert smiley here :)
 	}
 	else
 		show_empty_relatives(countery+1, counterx+1);

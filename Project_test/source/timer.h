@@ -18,6 +18,7 @@
 #include "numbers.h"
 #include "up.h"
 #include "P_Controls.h"
+#include "P_Score.h"
 
 //Define to use paletes easily
 #define PALETTE(x)	(x << 12)
@@ -57,5 +58,9 @@ void changeColorDisp_Main(uint16 c);
 void IRQ_initialize(); //Initialisation of the counter
 
 void stopTimer(); //Disables the timer and resets it
+
+void stop_display_timer();
+void redisplay_timer();
+void timer_update_score();
 
 #endif /* TIMER_H_ */

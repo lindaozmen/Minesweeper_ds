@@ -1,0 +1,1 @@
+numberslittle.o: numberslittle.s

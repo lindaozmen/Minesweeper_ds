@@ -59,7 +59,8 @@ P_Controls.o:  \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/timer.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/source/game.h \
   /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h \
-  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h \
+  /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Score.h
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Controls.h:
 
@@ -180,3 +181,5 @@ P_Controls.o:  \
 /home/nds/files/workspace/Minesweeper_ds/Project_test/build/numbers.h:
 
 /home/nds/files/workspace/Minesweeper_ds/Project_test/build/up.h:
+
+/home/nds/files/workspace/Minesweeper_ds/Project_test/source/P_Score.h:

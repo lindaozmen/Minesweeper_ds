@@ -17,7 +17,12 @@ void Audio_Init()
 	mmLoadEffect(SFX_EXPLOSION);
 	mmLoadEffect(SFX_RESULT);
 	mmLoadEffect(SFX_APPLAUSE);
-
+	mmLoadEffect(SFX_WATER);
+}
+void Selection_Effect_Play()
+{
+	mmEffect(SFX_WATER);
+	mmSetModuleVolume(512);
 }
 
 void Audio_PlayMusic()
@@ -31,6 +36,7 @@ void Audio_PlayMusic()
 void Explosion_Effect_Play()
 {
 	mmEffect(SFX_EXPLOSION);
+	mmSetModuleVolume(512);
 }
 
 void stopMusic()
@@ -39,7 +45,9 @@ void stopMusic()
 }
 void Result_Effect_Play(){
 	mmEffect(SFX_RESULT);
+	mmSetModuleVolume(512);
 }
 void Applause_Effect_Play(){
 	mmEffect(SFX_APPLAUSE);
+	mmSetModuleVolume(512);
 }

@@ -5,11 +5,11 @@
 #define ON 2
 
 int level = 1; //default easy
-
-int bool_start ;
-int verification;
+int bool_start ; // if we started the game
+int verification; // if the player selects a level
 int flag_mode_control;
 int stopTouch;
+
 
 void handleInput(){
 	scanKeys();
@@ -17,17 +17,20 @@ void handleInput(){
 
 	if(keys & KEY_Y)
 	{
+		Selection_Effect_Play();
 		level = 1;
 		verification = 1;
 	}
 	if (keys & KEY_A)
 	{
+		Selection_Effect_Play();
 		level = 2;
 		verification = 1;
 	}
 	if(keys & KEY_START){
 		if (verification == 1)
 		{
+			stopTimer();
 			bool_start = 1;
 			stopTouch = 1;
 			flag_mode_control = OFF;
@@ -45,8 +48,10 @@ void handleInput(){
 		irqDisable(IRQ_TIMER0);
 		stopTimer();
 		stopMusic();
+		stop_display_timer();
 		changeColorDisp_Main(BLACK);
 		configureGraphics_Main_Up();
+		fill_sub();
 	}
 	handleTouchPad();
 }
@@ -65,7 +70,7 @@ void handleTouchPad(){
 
 			if (x>235 && x<250)
 			{
-				if(y>5 && y<22)
+				if(y>5 && y<22) //flag
 				{
 					fill_19x19_button(24, 235, GREY, LIGHT_GREY);
 					fill_19x19_no_flag(24,235);
@@ -73,7 +78,7 @@ void handleTouchPad(){
 					fill_19x19_flag(5,235);
 					flag_mode_control = ON;
 				}
-				if (y>24 && y<43)
+				if (y>24 && y<43) //unflag
 				{
 					fill_19x19_button(5, 235, GREY, LIGHT_GREY);
 					fill_19x19_flag(5,235);
@@ -81,33 +86,49 @@ void handleTouchPad(){
 					fill_19x19_no_flag(24,235);
 					flag_mode_control = OFF;
 				}
-				if (y>50 && y<69)
+				if (y>50 && y<69) // play music
 				{
 					Audio_PlayMusic();
 				}
-				if (y>69 && y<88)
+				if (y>69 && y<88) // stop music
 				{
 					stopMusic();
 				}
-				if (y>95 && y<114)
+				if (y>95 && y<114) // stop sign
 				{
 					verification = 0;
 					bool_start = 0;
 					irqDisable(IRQ_TIMER0);
 					stopTimer();
 					stopMusic();
+					stop_display_timer();
 					changeColorDisp_Main(BLACK);
 					configureGraphics_Main_Up();
 					fill_sub();
 				}
 			}
-			if (flag_mode_control == OFF)
+			if (flag_mode_control == OFF) // unflag
 			{
 				normal_mode(x,y);
 			}
-			if (flag_mode_control == ON)
+			if (flag_mode_control == ON) // flag
 			{
 				flag_mode(x,y);
+			}
+			if (x>0 && x<19) // Smiley start
+			{
+				if(y>0 && y<19)
+				{
+					stopTimer();
+					bool_start = 1;
+					stopTouch = 1;
+					flag_mode_control = OFF;
+					fill_sub();
+					init_game(level);
+					mmStart(MOD_INFLUENCA, MM_PLAY_LOOP);
+					initChronoDisp_Main();
+					Audio_PlayMusic();
+				}
 			}
 		}
 	}

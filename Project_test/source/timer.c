@@ -156,3 +156,21 @@ void initChronoDisp_Main()
 	memset(BG_MAP_RAM(0), 32,32*32*2);
 	updateChronoDisp_Main(-1,-1,-1);
 }
+
+void stop_display_timer()
+{
+	REG_DISPCNT &= ~DISPLAY_BG0_ACTIVE;
+}
+
+void redisplay_timer()
+{
+	REG_DISPCNT |= DISPLAY_BG0_ACTIVE;
+}
+
+void timer_update_score()
+{
+	int final_time;
+	final_time = min*3600 + sec*60 + msec;
+	writeMaxScore(final_time);
+	irqDisable(IRQ_TIMER0);
+}

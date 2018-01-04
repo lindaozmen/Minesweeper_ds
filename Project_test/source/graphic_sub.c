@@ -7,6 +7,7 @@
  */
 
 #include "graphic_sub.h"
+#include "P_Score.h"
 
 void configureGraphics_Sub()
 {
@@ -28,6 +29,7 @@ void configBG2_Sub(){
     REG_BG2PD_SUB = 256;
     fillScreen_Sub(WHITE);
 }
+
 
 void fill_sub(){
 	int i,j;
