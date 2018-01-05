@@ -108,16 +108,13 @@ PRIVATE void calculate_numbers()
 
 PRIVATE int get_number_of_bombs(int level)
 {
-	int number_of_bombs = NBOMBS_EASY;
+	int number_of_bombs = 0;
 
-	switch (level) {
-	case 2:
-		number_of_bombs = NBOMBS_MEDIUM;
-		break;
-	case 3:
+	if (level == 1)
+		number_of_bombs = NBOMBS_EASY;
+	else if (level == 2)
 		number_of_bombs = NBOMBS_HARD;
-		break;
-	}
+
 
 	return number_of_bombs;
 }
@@ -222,7 +219,10 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 		stopMusic();
 		stopTouching();
 	}
-	else if (is_finished())
+	else
+		show_empty_relatives(countery+1, counterx+1);
+
+	if (is_finished())
 	{
 		fill_19x19_button(0,0,GREY,LIGHT_GREY);
 		fill_19x19_smiley_win(0,0);
@@ -230,8 +230,6 @@ PUBLIC void on_matrix_clicked(int countery, int counterx)
 		stopMusic();
 		Applause_Effect_Play();
 	}
-	else
-		show_empty_relatives(countery+1, counterx+1);
 }
 
 PUBLIC int flagged(int countery, int counterx)
@@ -254,7 +252,7 @@ PRIVATE int is_finished()
 	for (i = 1; i <= GAME_ROW; ++i)
 		for (j = 1; j <= GAME_COL; ++j)
 		{
-			if ((!g_matrix[i][j].uncovered) && (!g_matrix[i][j].is_bomb))
+			if (!(g_matrix[i][j].uncovered) && !(g_matrix[i][j].is_bomb))
 				finished = 0;
 		}
 

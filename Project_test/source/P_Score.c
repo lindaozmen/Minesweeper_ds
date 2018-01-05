@@ -12,7 +12,7 @@ void writeMaxScore(unsigned int time)
 	if(file != NULL)
 	{
 		//Print the value in the file
-		fprintf(file,"%i \n", final_time);
+		fprintf(file,"%i\n", final_time);
 		//Close the file
 		fclose(file);
 	}
