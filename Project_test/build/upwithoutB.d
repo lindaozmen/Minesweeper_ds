@@ -1,0 +1,1 @@
+upwithoutB.o: upwithoutB.s

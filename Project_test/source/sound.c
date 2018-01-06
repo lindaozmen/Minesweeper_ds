@@ -1,8 +1,4 @@
 /*
- *	File Name	:	sound.h
- *	Author		:
- *	Last Update :	23.12.2017
- *
  *	Implementation of sound in project
  */
 #include "sound.h"
@@ -19,6 +15,7 @@ void Audio_Init()
 	mmLoadEffect(SFX_APPLAUSE);
 	mmLoadEffect(SFX_WATER);
 }
+
 void Selection_Effect_Play()
 {
 	mmEffect(SFX_WATER);
@@ -43,10 +40,12 @@ void stopMusic()
 {
 	mmStop();
 }
+
 void Result_Effect_Play(){
 	mmEffect(SFX_RESULT);
 	mmSetModuleVolume(512);
 }
+
 void Applause_Effect_Play(){
 	mmEffect(SFX_APPLAUSE);
 	mmSetModuleVolume(512);

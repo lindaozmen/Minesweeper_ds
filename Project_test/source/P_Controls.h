@@ -1,3 +1,6 @@
+/*
+ *	Header file of control systems in project
+ */
 
 #include <nds.h>
 #include "graphic_main.h"
