@@ -42,6 +42,7 @@ void fill_19x19_smiley_win(unsigned int top, unsigned int left);
  ***********************/
 #define	RED ARGB16(1,31,0,0)
 #define PINK_TIMER ARGB16(1,27,13,13)
+#define BLUE_TIMER ARGB16(1,31,29,29)
 #define PINK ARGB16(1,31,22,22)
 #define LIGHTYELLOW ARGB16(1,31,31,27);
 #define GREEN ARGB16(1,0,31,0)

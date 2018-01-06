@@ -60,7 +60,7 @@ void fillScreen_Sub(){
 	int i,j;
 	for(i = 0; i<192; i++){
 		for(j = 0;j<256; j++){
-			BG_BMP_RAM_SUB(0)[i*256+j] = PINK_TIMER;
+			BG_BMP_RAM_SUB(0)[i*256+j] = BLUE_TIMER;
 		}
 	}
 }

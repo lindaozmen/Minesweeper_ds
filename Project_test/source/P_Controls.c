@@ -15,14 +15,12 @@ void handleInput(){
 	scanKeys();
 	unsigned keys = keysDown();
 
-	if(keys & KEY_Y)
-	{
+	if(keys & KEY_Y){
 		Selection_Effect_Play();
 		level = 1;
 		verification = 1;
 	}
-	if (keys & KEY_A)
-	{
+	if (keys & KEY_A){
 		Selection_Effect_Play();
 		level = 2;
 		verification = 1;

@@ -10,7 +10,8 @@
 #ifndef GAME_H_
 #define GAME_H_
 
-#define NBOMBS_EASY		1
+#define NBOMBS_EASY		10
+#define NBOMBS_MEDIUM	15
 #define NBOMBS_HARD		20
 
 typedef struct tagCELL_INFO {
