@@ -94,13 +94,16 @@ PRIVATE void calculate_numbers()
 
 PRIVATE int get_number_of_bombs(int level)
 {
-	int number_of_bombs = 0;
+	int number_of_bombs = NBOMBS_EASY;
 
-	if (level == 1)
-		number_of_bombs = NBOMBS_EASY;
-	else if (level == 2)
+	switch (level) {
+	case 2:
+		number_of_bombs = NBOMBS_MEDIUM;
+		break;
+	case 3:
 		number_of_bombs = NBOMBS_HARD;
-
+		break;
+	}
 
 	return number_of_bombs;
 }
