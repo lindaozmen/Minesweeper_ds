@@ -1,8 +1,4 @@
 /*
- *	File Name	:	sound.h
- *	Author		:
- *	Last Update :	23.12.2017
- *
  *	Header file of sound in project
  */
 

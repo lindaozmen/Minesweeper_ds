@@ -1,3 +1,6 @@
+/*
+ *	Implementation of score in project (secondary storage on file)
+ */
 
 #include "P_Score.h"
 #include "numberslittle.h"
@@ -12,7 +15,7 @@ void writeMaxScore(unsigned int time)
 	if(file != NULL)
 	{
 		//Print the value in the file
-		fprintf(file,"\r\n %i   \r\n", final_time);
+		fprintf(file,"%i \r\n", final_time);
 		//Close the file
 		fclose(file);
 	}

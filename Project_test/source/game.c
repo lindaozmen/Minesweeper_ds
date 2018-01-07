@@ -1,17 +1,6 @@
 /*
-*
-*	File Name	:	game.c
-*	Author		:
-*	Last Update :	23.12.2017
-*
 *	Implementation of game
 */
-
-#define TEST
-
-#ifdef TEST
-#include <stdio.h>
-#endif
 
 #include <stdlib.h>
 #include <time.h>
@@ -54,7 +43,7 @@ PUBLIC void init_game(int level)
 			g_matrix[i][j].flagged = 0;
 		}
 
-	fill_array(get_number_of_bombs(level)); /* matrisi random dolduruyor */
+	fill_array(get_number_of_bombs(level)); /* random load the matrix */
 }
 
 PRIVATE void fill_array(int number_of_bombs)
@@ -77,10 +66,6 @@ PRIVATE void fill_array(int number_of_bombs)
 		g_matrix[row][col].is_bomb = 1;
 	}
 	calculate_numbers();
-
-#ifdef TEST
-
-#endif
 }
 
 PRIVATE int get_sum(int i, int j)
@@ -94,6 +79,7 @@ PRIVATE int get_sum(int i, int j)
 
 	return sum;
 }
+
 PRIVATE void calculate_numbers()
 {
 	int i, j;

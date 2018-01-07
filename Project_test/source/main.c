@@ -1,6 +1,5 @@
 /*
- * Template Nintendo DS
- * May 2011
+ * main function
  */
 
 #include <nds.h>
@@ -15,13 +14,13 @@
 #include "sound.h"
 
 
-int main(void) {
+int main(void)
+{
 	fatInitDefault();
 	consoleDemoInit();
 	Audio_Init();
     configureGraphics_Main_Up();
 	configureGraphics_Sub();
-
 
     while(1)
     {

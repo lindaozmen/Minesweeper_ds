@@ -1,8 +1,4 @@
 /*
- *	File Name	:	graphic_sub.h
- *	Author		:
- *	Last Update :	23.12.2017
- *
  *	Header file of graphics on sub screen
  */
 

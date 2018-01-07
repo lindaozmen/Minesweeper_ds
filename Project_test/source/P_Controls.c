@@ -1,3 +1,7 @@
+/*
+ *	Implementation of control systems in project
+ */
+
 #include "P_Controls.h"
 #include "game.h"
 

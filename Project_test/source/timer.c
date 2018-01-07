@@ -1,8 +1,4 @@
 /*
- *	File Name	:	timer.c
- *	Author		:
- *	Last Update :	23.12.2017
- *
  *	Implementation of time in project
  */
 
@@ -144,7 +140,7 @@ void initChronoDisp_Main()
 {
 	VRAM_A_CR = VRAM_ENABLE
 				| VRAM_A_MAIN_BG;
-	REG_DISPCNT = MODE_0_2D | DISPLAY_BG0_ACTIVE;
+	REG_DISPCNT = MODE_5_2D | DISPLAY_BG0_ACTIVE;
 	BGCTRL[0] = BG_32x32 | BG_COLOR_256 | BG_MAP_BASE(0) | BG_TILE_BASE(1);
 
 	swiCopy(numbersTiles, BG_TILE_RAM(1), numbersTilesLen);
