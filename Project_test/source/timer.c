@@ -165,8 +165,8 @@ void redisplay_timer()
 
 void timer_update_score()
 {
-	int final_time;
-	final_time = min*3600 + sec*60 + msec;
+	int final_time; //in msec
+	final_time = (min*60 + sec)*1000 + msec;
 	writeMaxScore(final_time);
 	irqDisable(IRQ_TIMER0);
 }
